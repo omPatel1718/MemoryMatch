@@ -4,20 +4,19 @@ public class Card {
     int points, turns, time;
     boolean flipped, matched;
 
-    public Card(int value, String type){
+    public Card(int value, int type){
         flipped = false;
         matched = false;
 
-        if(type.equals("points")){
+        if(type == 1){                        //points
             points = value;
             turns = 0;
             time = 0;
-        }else if(type.equals("turns")){
+        }else if(type == 2){                  //turns
             points = 0;
             turns = value;
             time = 0;
-        }
-        else{
+        }else if(type == 3){                   //time
             points = value;
             turns = 0;
             time = 0;
