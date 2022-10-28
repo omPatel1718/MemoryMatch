@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Memory Match</string>
+    <string-array name="difficulty">
+        <item>Classic</item>
+        <item>Zen</item>
+        <item>Mastery</item>
+        <item>Blitz</item>
+    </string-array>
+
 </resources>
