@@ -3,6 +3,7 @@ package com.example.memorymatch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 
 public class GameActivity extends AppCompatActivity {
@@ -34,6 +35,20 @@ public class GameActivity extends AppCompatActivity {
              blitz time - 2, 3, or 5
              */
         }
+
+        // found some decreasing timer code on https://developer.android.com/reference/android/os/CountDownTimer#java
+        // depicts a simple 30 second timer
+        // we need to figure out how to pause and add to said timer mid countdown
+        new CountDownTimer(30000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                //mTextField.setText("done!");
+            }
+        }.start();
     }
 
     public void cardClicked(View v){
