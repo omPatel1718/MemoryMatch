@@ -39,6 +39,8 @@ public class GameActivity extends AppCompatActivity {
         // found some decreasing timer code on https://developer.android.com/reference/android/os/CountDownTimer#java
         // depicts a simple 30 second timer
         // we need to figure out how to pause and add to said timer mid countdown
+
+        //if blitz, classic, or mastery
         new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -63,6 +65,18 @@ public class GameActivity extends AppCompatActivity {
                     }else{
                         Card[i].setFlipped(false);
                         thisCard.setFlipped(false);
+                        if(game mode is mastery){
+                        lives--;
+                        if(lives==0){
+                            end game
+                        }
+                    }
+                    }
+                    if(game mode is zen){
+                        turns--;
+                        if(turns==0){
+                            end game
+                        }
                     }
                 }
             }
