@@ -37,6 +37,29 @@ public class Card {
         }
     }
 
+    @Override
+    public String toString() {
+        int value = 0;
+        String type = "";
+        if(points>value){
+            value = points;
+            type = "points";
+        }
+        if(time>value){
+            value = time;
+            type = "time";
+        }
+        if(turns>value){
+            value = turns;
+            type = "turns";
+        }
+        if(lives>value){
+            value = lives;
+            type = "lives";
+        }
+        return "" + value + " " + type;
+    }
+
     public int getPoints() {
         return points;
     }

@@ -3,6 +3,7 @@ package com.example.memorymatch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -11,6 +12,9 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        /*
+         initializes variables according to game mode
+         */
         Card[] deck;
         for(int i=0; i<30; i++){
             /*
@@ -30,5 +34,24 @@ public class GameActivity extends AppCompatActivity {
              blitz time - 2, 3, or 5
              */
         }
+    }
+
+    public void cardClicked(View v){
+        /*
+        if(!thisCard.isFlipped){
+            thisCard.setFlipped(true);
+            String card2 = thisCard.toString();
+            for(int i=0; i<30; i++){
+                if(Card[i].isFlipped()){
+                    if(Card[i].toString.equals(card2)){
+                        whatever needs to change does
+                    }else{
+                        Card[i].setFlipped(false);
+                        thisCard.setFlipped(false);
+                    }
+                }
+            }
+        }
+        */
     }
 }
