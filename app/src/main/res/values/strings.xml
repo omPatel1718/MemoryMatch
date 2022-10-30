@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Memory Match</string>
-    <string-array name="difficulty">
+    <string-array name="game_mode">
         <item>Classic</item>
         <item>Zen</item>
         <item>Mastery</item>

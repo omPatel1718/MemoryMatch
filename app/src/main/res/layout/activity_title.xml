@@ -24,7 +24,7 @@
         android:layout_width="211dp"
         android:layout_height="44dp"
         android:layout_marginTop="124dp"
-        android:entries="@array/difficulty"
+        android:entries="@array/game_mode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
