@@ -1,12 +1,18 @@
 package com.example.memorymatch;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class TitleActivity extends AppCompatActivity {
+
+    Spinner spinner;
+    String spinnerSelectedText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,27 +20,45 @@ public class TitleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_title);
     }
 
-/*
-spinnerSelectedText = spinner.getSelectedItem().toString();
-        // This will take the option they clicked on and ensure it is a number.
-        // My options went from 3 to 0, so that is why I have it adjusted with 4-i
-        // I also had an instruction statement as my first line in my string array
-        // ADJUST THIS LOOP TO MATCH YOUR CODE!
-
-        // Note the syntax here for how to access an index of a string array within
-        // the java
-        for (int i = 1; i < 4; i++) {
-            if (spinnerSelectedText.equals(getResources().
-                    getStringArray(R.array.memoryRating)[i])) {
-                memoryRatingNum = 4-i;
-                break;
-            }
-        }
- */
-
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    public void startGame(View view) {
+        spinnerSelectedText = spinner.getSelectedItem().toString();
+        int gameNum = 0;
+        String gameMode = "";
+
+        //checks each spinner option
+        for (int i = 1; i < 4; i++) {
+            if (spinnerSelectedText.equals(getResources().
+                    getStringArray(R.array.game_mode)[i])) {
+                gameNum = 4-i;
+                break;
+            }
+        }
+
+        //sets gameMode based on spinner check
+        if(gameNum==3){
+            gameMode="Classic";
+        }else if(gameNum==2){
+            gameMode="Zen";
+        }else if(gameNum==1){
+            gameMode="Mastery";
+        }else{
+            gameMode="Blitz";
+        }
+
+        Intent intent = new Intent(TitleActivity.this, GameActivity.class);
+        startActivity(intent);
+        intent.putExtra("GAMEMODE", gameMode);
+    }
+
+    public void instructions(View view) {
+        Intent intent = new Intent(TitleActivity.this, InfoActivity.class);
+        startActivity(intent);
+        intent.putExtra("PREVSCREEN", "fromTitle");
     }
 
 }

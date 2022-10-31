@@ -23,4 +23,10 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(MenuActivity.this, TitleActivity.class);
         startActivity(intent);
     }
+
+    public void instructions(View view) {
+        Intent intent = new Intent(MenuActivity.this, InfoActivity.class);
+        startActivity(intent);
+        intent.putExtra("PREVSCREEN", "fromMenu");
+    }
 }
