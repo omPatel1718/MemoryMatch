@@ -2,6 +2,7 @@ package com.example.memorymatch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -82,5 +83,15 @@ public class GameActivity extends AppCompatActivity {
             }
         }
         */
+    }
+
+    public void pause(View view) {
+        Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void gameOver(View view) {
+        Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
+        startActivity(intent);
     }
 }
