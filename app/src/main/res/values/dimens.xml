@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name= "textSize">20sp</dimen>
+    <dimen name= "textSize">23sp</dimen>
+    <dimen name= "bigSize">50sp</dimen>
 </resources>
