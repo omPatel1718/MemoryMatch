@@ -4,26 +4,26 @@ public class Card {
     int points, turns, time, lives;
     boolean flipped, matched;
 
-    public Card(int value, int type){
+    public Card(int value, String type){
         flipped = false;
         matched = false;
 
-        if(type == 1){                         //points - 1
+        if(type.equals("points")){                         //points
             points = value;
             time = 0;
             turns = 0;
             lives = 0;
-        }else if(type == 2){                   //time - 2
+        }else if(type.equals("time")){                   //time
             points = 0;
             time = value;
             turns = 0;
             lives = 0;
-        }else if(type == 3){                   //turns - 3  (Zen only)
+        }else if(type.equals("turns")){                   //turns       (Zen only)
             points = 0;
             turns = 0;
             time = value;
             lives = 0;
-        }else if(type==0){                     //lives - 0  (Mastery only)
+        }else if(type.equals("lives")){                     //lives     (Mastery only)
             points = 0;
             time = 0;
             turns = 0;
