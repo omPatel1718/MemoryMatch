@@ -18,4 +18,9 @@ public class GameOverActivity extends AppCompatActivity {
         Intent intent = new Intent(GameOverActivity.this, TitleActivity.class);
         startActivity(intent);
     }
+
+    public void playAgain(View view){
+        Intent intent = new Intent(GameOverActivity.this, GameActivity.class);
+        startActivity(intent);
+    }
 }
