@@ -1,5 +1,7 @@
 package com.example.memorymatch;
-
+//May want to check later when animating the cards
+//https://developer.android.com/develop/ui/views/animations/reposition-view
+//https://developer.android.com/reference/android/animation/ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
