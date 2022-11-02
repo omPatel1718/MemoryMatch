@@ -35,6 +35,7 @@
         android:layout_marginStart="352dp"
         android:layout_marginBottom="72dp"
         android:text="Start"
+        android:onClick="startGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -45,6 +46,7 @@
         android:layout_marginStart="248dp"
         android:layout_marginBottom="72dp"
         android:text="Info"
+        android:onClick="instructions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
