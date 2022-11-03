@@ -2,6 +2,7 @@ package com.example.memorymatch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -201,5 +202,14 @@ public class GameActivity extends AppCompatActivity {
     public void gameOver() {
         Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
         startActivity(intent);
+    }
+
+    public void disCard(View view){
+        ObjectAnimator animationX = ObjectAnimator.ofFloat(view, "translationX", -100f);
+        animationX.setDuration(5);
+        animationX.start();
+        ObjectAnimator animationY = ObjectAnimator.ofFloat(view, "translationY", -100f);
+        animationY.setDuration(5);
+        animationY.start();
     }
 }
