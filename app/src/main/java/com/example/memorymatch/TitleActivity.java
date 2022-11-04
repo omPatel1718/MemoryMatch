@@ -2,6 +2,9 @@ package com.example.memorymatch;
 //May want to check later when animating the cards
 //https://developer.android.com/develop/ui/views/animations/reposition-view
 //https://developer.android.com/reference/android/animation/ObjectAnimator
+//https://gist.github.com/Pavneet-Sing/cb760df224fea66f16e3bb76194aa871
+//https://docs.oracle.com/javase/7/docs/api/java/lang/Float.html
+//https://www.w3schools.com/css/css_float.asp
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
