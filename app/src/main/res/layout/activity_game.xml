@@ -24,7 +24,7 @@
         android:id="@+id/card1"
         android:layout_width="70dp"
         android:layout_height="103dp"
-        android:onClick="disCard"
+        android:onClick="cardClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.052"

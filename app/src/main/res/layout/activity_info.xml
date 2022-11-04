@@ -10,19 +10,18 @@
         android:id="@+id/instructions"
         android:layout_width="680dp"
         android:layout_height="325dp"
+        android:layout_marginTop="48dp"
+
         android:text="To win the game, you must match each pair of cards. When you start the game, you will be given a set amount of cards to match.
          \nClassic: you are given a time limit to match as many cards as possible.
          \nZen: you have no time limit or number of turns. it is infinite.
 
          \nYou should match each pair before either the amount of time or turns remaining runs out."
-
         android:textSize="23dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.813" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/backButton"
