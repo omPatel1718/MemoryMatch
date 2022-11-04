@@ -20,6 +20,7 @@ public class TitleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
+        spinner = findViewById(R.id.modeSpinner);
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -29,32 +30,9 @@ public class TitleActivity extends AppCompatActivity {
 
     public void startGame(View view) {
         spinnerSelectedText = spinner.getSelectedItem().toString();
-        int gameNum = 0;
-        String gameMode = "";
-
-        //checks each spinner option
-        for (int i = 1; i < 4; i++) {
-            if (spinnerSelectedText.equals(getResources().
-                    getStringArray(R.array.game_mode)[i])) {
-                gameNum = 4-i;
-                break;
-            }
-        }
-
-        //sets gameMode based on spinner check
-        if(gameNum==3){
-            gameMode="Classic";
-        }else if(gameNum==2){
-            gameMode="Zen";
-        }else if(gameNum==1){
-            gameMode="Mastery";
-        }else{
-            gameMode="Blitz";
-        }
-
         Intent intent = new Intent(TitleActivity.this, GameActivity.class);
         startActivity(intent);
-        intent.putExtra("GAMEMODE", gameMode);
+        intent.putExtra("GAMEMODE", spinnerSelectedText);
     }
 
     public void instructions(View view) {

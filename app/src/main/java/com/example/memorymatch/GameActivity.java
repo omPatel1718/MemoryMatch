@@ -22,13 +22,15 @@ public class GameActivity extends AppCompatActivity {
 
         //initializes deck
         Intent intent = getIntent();
-        gameMode = intent.getStringExtra("GAMEMODE");
+        //gameMode = intent.getStringExtra("GAMEMODE");
+        gameMode = "Classic";
 
         for(int i=0; i<deckSize; i+=2){
             Card temp = makeCard(i);
             deck[i] = temp;
             deck[i+1] = temp;
         }
+
 
 
         //if blitz, classic, or mastery, set up timer
@@ -171,7 +173,7 @@ public class GameActivity extends AppCompatActivity {
             for(int i=0; i<30; i++){
                 if(Card[i].isFlipped()){
                     if(deck[i].toString.equals(card.2)){
-                        if(deck[i]
+
                     }else{
                         Card[i].setFlipped(false);
                         thisCard.setFlipped(false);
