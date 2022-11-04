@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -31,8 +32,9 @@ public class TitleActivity extends AppCompatActivity {
     public void startGame(View view) {
         spinnerSelectedText = spinner.getSelectedItem().toString();
         Intent intent = new Intent(TitleActivity.this, GameActivity.class);
-        startActivity(intent);
+        Log.i("HELP", "this is the spinner text: " + spinnerSelectedText);
         intent.putExtra("GAMEMODE", spinnerSelectedText);
+        startActivity(intent);
     }
 
     public void instructions(View view) {

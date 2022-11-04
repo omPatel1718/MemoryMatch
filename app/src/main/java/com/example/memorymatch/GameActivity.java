@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 
 public class GameActivity extends AppCompatActivity {
@@ -22,9 +23,8 @@ public class GameActivity extends AppCompatActivity {
 
         //initializes deck
         Intent intent = getIntent();
-        //gameMode = intent.getStringExtra("GAMEMODE");
-        gameMode = "Classic";
-
+        gameMode = intent.getStringExtra("GAMEMODE");
+        Log.i("HELP", "this is the gameMode text: " + gameMode);
         for(int i=0; i<deckSize; i+=2){
             Card temp = makeCard(i);
             deck[i] = temp;
@@ -35,13 +35,12 @@ public class GameActivity extends AppCompatActivity {
 
         //if blitz, classic, or mastery, set up timer
         if(gameMode.equals("Classic") || gameMode.equals("Mastery")){
-            startTime = 30;
+            startTime = 60;
             timer();
         }else if(gameMode.equals("Blitz")){
-            startTime = 20;
+            startTime = 30;
             timer();
         }
-
     }
 
     public void timer(){
