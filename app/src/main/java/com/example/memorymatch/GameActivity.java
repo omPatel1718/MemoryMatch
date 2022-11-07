@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -246,12 +247,23 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public static Point getLocationOnScreen(View view) {
+        int[] location = new int[2];
+        view.getLocationOnScreen(location);
+        return new Point(location[0], location[1]);
+    }
+
     public void disCard(View view){
-        ObjectAnimator animationX = ObjectAnimator.ofFloat(view, "translationX", -100f);
-        animationX.setDuration(5);
-        animationX.start();
-        ObjectAnimator animationY = ObjectAnimator.ofFloat(view, "translationY", -100f);
-        animationY.setDuration(5);
-        animationY.start();
+        Point cardCoordinates = getLocationOnScreen(view);
+        int cardX = cardCoordinates.x;
+        int cardY = cardCoordinates.y;
+        View discardPile = findViewById(R.id.discard);
+        Point targetCoordinates = getLocationOnScreen(discardPile);
+        int targetX = targetCoordinates.x;
+        int targetY = targetCoordinates.y;
+        float floatX = targetX - cardX;
+        ObjectAnimator moveX = ObjectAnimator.ofFloat(view, "translationX", 0f, floatX);
+        moveX.setDuration(5);
+        moveX.start();
     }
 }
