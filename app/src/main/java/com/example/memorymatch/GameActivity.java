@@ -165,34 +165,75 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void cardClicked(View v){
-        /*
-        if(!thisCard.isFlipped){
-            thisCard.setFlipped(true);
-            String card2 = thisCard.toString();
-            for(int i=0; i<30; i++){
-                if(Card[i].isFlipped()){
-                    if(deck[i].toString.equals(card.2)){
+        int cardNum=0;
+
+        if(v.getId() == R.id.card1){
+            cardNum = 0;
+        }else if(v.getId() == R.id.card2){
+            cardNum = 1;
+        }else if(v.getId() == R.id.card3){
+            cardNum = 2;
+        }else if(v.getId() == R.id.card4){
+            cardNum = 3;
+        }else if(v.getId() == R.id.card5){
+            cardNum = 4;
+        }else if(v.getId() == R.id.card6){
+            cardNum = 5;
+        }else if(v.getId() == R.id.card7){
+            cardNum = 6;
+        }else if(v.getId() == R.id.card8){
+            cardNum = 7;
+        }else if(v.getId() == R.id.card9){
+            cardNum = 8;
+        }else if(v.getId() == R.id.card10){
+            cardNum = 9;
+        }else if(v.getId() == R.id.card11){
+            cardNum = 10;
+        }else if(v.getId() == R.id.card12){
+            cardNum = 11;
+        }else if(v.getId() == R.id.card13){
+            cardNum = 12;
+        }else if(v.getId() == R.id.card14){
+            cardNum = 13;
+        }else if(v.getId() == R.id.card15){
+            cardNum = 14;
+        }else if(v.getId() == R.id.card16){
+            cardNum = 15;
+        }else if(v.getId() == R.id.card17){
+            cardNum = 16;
+        }else{
+            cardNum = 17;
+        }
+
+        Card select = deck[cardNum];
+
+
+        if(!select.isFlipped()){
+            select.setFlipped(true);
+            String card2 = select.toString();
+            for(int i=0; i<18; i++){
+                if(deck[i].isFlipped()){
+                    if(deck[i].toString().equals(select.toString())){
 
                     }else{
-                        Card[i].setFlipped(false);
-                        thisCard.setFlipped(false);
-                        if(game mode is mastery){
-                        lives--;
-                        if(lives==0){
-                            gameOver();
+                        deck[i].setFlipped(false);
+                        select.setFlipped(false);
+                        if(gameMode.equals("Mastery")){
+                        //lives--;
+                        //if(lives==0){
+                        //    gameOver();
+                        //}
                         }
                     }
-                    }
-                    if(game mode is zen){
-                        turns--;
-                        if(turns==0){
-                            gameOver();
-                        }
+                    if(gameMode.equals("Zen")){
+                        //turns--;
+                        //if(turns==0){
+                        //    gameOver();
+                        //}
                     }
                 }
             }
         }
-        */
     }
 
     public void pause(View view) {
