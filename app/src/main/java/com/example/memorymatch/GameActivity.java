@@ -13,8 +13,9 @@ import android.view.View;
 public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
-    int startTime = 0;
+    int startTime, lives, turns = 0;
     String gameMode;
+    Card[] temp = new Card[deckSize];
     Card[] deck = new Card[deckSize];
 
     @Override
@@ -22,25 +23,38 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        //initializes deck
+        //initializes deck (but each pair is consecutive
         Intent intent = getIntent();
         gameMode = intent.getStringExtra("GAMEMODE");
         Log.i("HELP", "this is the gameMode text: " + gameMode);
         for(int i=0; i<deckSize; i+=2){
-            Card temp = makeCard(i);
-            deck[i] = temp;
-            deck[i+1] = temp;
+            Card add = makeCard(i);
+            temp[i] = add;
+            temp[i+1] = add;
         }
 
-
+        //randomizes deck order
+        for(int i=0; i<deckSize; i++){
+            int rand = (int)(Math.random()*deckSize);
+            while (deck[rand] != null){
+                rand = (int)(Math.random()*deckSize);
+            }
+            deck[rand] = temp[i];
+        }
 
         //if blitz, classic, or mastery, set up timer
-        if(gameMode.equals("Classic") || gameMode.equals("Mastery")){
+        if(gameMode.equals("Classic")){
             startTime = 60;
+            timer();
+        }else if(gameMode.equals("Mastery")){
+            startTime = 60;
+            lives = 15;
             timer();
         }else if(gameMode.equals("Blitz")){
             startTime = 30;
             timer();
+        }else if(gameMode.equals("Zen")){
+            turns = 15;
         }
     }
 
@@ -220,17 +234,17 @@ public class GameActivity extends AppCompatActivity {
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
                         if(gameMode.equals("Mastery")){
-                        //lives--;
-                        //if(lives==0){
-                        //    gameOver();
-                        //}
+                            lives--;
+                            if(lives==0){
+                                gameOver();
+                            }
                         }
                     }
                     if(gameMode.equals("Zen")){
-                        //turns--;
-                        //if(turns==0){
-                        //    gameOver();
-                        //}
+                        turns--;
+                        if(turns==0){
+                            gameOver();
+                        }
                     }
                 }
             }
