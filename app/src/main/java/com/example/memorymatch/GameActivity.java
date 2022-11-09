@@ -265,5 +265,16 @@ public class GameActivity extends AppCompatActivity {
         ObjectAnimator moveX = ObjectAnimator.ofFloat(view, "translationX", 0f, floatX);
         moveX.setDuration(5);
         moveX.start();
+        if(targetY > cardY){
+            float floatY = targetY - cardY;
+            ObjectAnimator moveY = ObjectAnimator.ofFloat(view, "translationY", 0f, floatY);
+            moveY.setDuration(5);
+            moveY.start();
+        } else {
+            float floatY = cardY - targetY;
+            ObjectAnimator moveY = ObjectAnimator.ofFloat(view, "translationY", floatY);
+            moveY.setDuration(5);
+            moveY.start();
+        }
     }
 }
