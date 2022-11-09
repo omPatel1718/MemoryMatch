@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/instructions"
-        android:layout_width="772dp"
-        android:layout_height="326dp"
+        android:layout_width="662dp"
+        android:layout_height="307dp"
         android:layout_marginTop="48dp"
 
         android:text="To win the game, you must match each pair of cards. When you start the game, you will be given a set amount of cards to match.
