@@ -13,7 +13,7 @@ import android.view.View;
 public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
-    int startTime, lives, turns = 0;
+    int startTime, lives, turns, score = 0;
     String gameMode;
     Card[] temp = new Card[deckSize];
     Card[] deck = new Card[deckSize];
@@ -229,7 +229,10 @@ public class GameActivity extends AppCompatActivity {
             for(int i=0; i<18; i++){
                 if(deck[i].isFlipped()){
                     if(deck[i].toString().equals(select.toString())){
-
+                        score += deck[i].getPoints();
+                        turns += deck[i].getTurns();
+                        lives += deck[i].getLives();
+                        startTime += deck[i].getTime();
                     }else{
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
@@ -258,6 +261,8 @@ public class GameActivity extends AppCompatActivity {
 
     public void gameOver() {
         Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
+        intent.putExtra("MODE", gameMode);
+        intent.putExtra("SCORE",score);
         startActivity(intent);
     }
 

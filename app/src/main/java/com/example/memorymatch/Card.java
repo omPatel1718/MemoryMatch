@@ -93,6 +93,14 @@ public class Card {
         this.flipped = flipped;
     }
 
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
+    }
+
     public boolean isMatched() {
         return matched;
     }
