@@ -2,7 +2,6 @@ package com.example.memorymatch;
 
 public class Card {
     int points, turns, time, lives;
-    float floatX, floatY;
     boolean flipped, matched;
 
     public Card(int value, String type){
