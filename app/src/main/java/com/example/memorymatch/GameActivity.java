@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -44,14 +45,14 @@ public class GameActivity extends AppCompatActivity {
 
         //if blitz, classic, or mastery, set up timer
         if(gameMode.equals("Classic")){
-            startTime = 60;
+            startTime = 60000;
             timer();
         }else if(gameMode.equals("Mastery")){
-            startTime = 60;
+            startTime = 60000;
             lives = 15;
             timer();
         }else if(gameMode.equals("Blitz")){
-            startTime = 30;
+            startTime = 30000;
             timer();
         }else if(gameMode.equals("Zen")){
             turns = 15;
@@ -69,10 +70,16 @@ public class GameActivity extends AppCompatActivity {
          create a variable
          */
 
-        new CountDownTimer(startTime* 1000L, 1000) {
+        new CountDownTimer((long) startTime, 1000) {
             public void onTick(long millisUntilFinished) {
                 startTime--;
-                //put the score/time update stuff here
+                TextView scoreText = findViewById(R.id.display);
+                int time = startTime/1000;
+                String text = "Score:" + score + "\nTimer: " + time;
+                if(gameMode.equals("Mastery")){
+                    text +="\nLives: " + lives;
+                }
+                scoreText.setText(text);
             }
 
             public void onFinish() {
@@ -152,19 +159,19 @@ public class GameActivity extends AppCompatActivity {
             }
         }else if(type.equals("time") && gameMode.equals("Blitz")){
             if(rand==1){
-                value = 2;
+                value = 2000;
             }else if(rand==2){
-                value = 3;
+                value = 3000;
             }else{
-                value = 5;
+                value = 5000;
             }
         }else if(type.equals("time")){
             if(rand==1){
-                value = 3;
+                value = 3000;
             }else if(rand==2){
-                value = 5;
+                value = 5000;
             }else{
-                value = 10;
+                value = 10000;
             }
         }else{
             if(rand==1){
@@ -246,6 +253,9 @@ public class GameActivity extends AppCompatActivity {
                     }
                     if(gameMode.equals("Zen")){
                         turns--;
+                        TextView scoreText = findViewById(R.id.display);
+                        String text = "Score:" + score + "\nTurns: " + turns;
+                        scoreText.setText(text);
                         if(turns==0){
                             gameOver();
                         }
