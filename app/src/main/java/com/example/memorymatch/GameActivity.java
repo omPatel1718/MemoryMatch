@@ -72,6 +72,7 @@ public class GameActivity extends AppCompatActivity {
         new CountDownTimer(startTime* 1000L, 1000) {
             public void onTick(long millisUntilFinished) {
                 startTime--;
+                //put the score/time update stuff here
             }
 
             public void onFinish() {
