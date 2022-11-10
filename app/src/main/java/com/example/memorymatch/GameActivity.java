@@ -243,8 +243,8 @@ public class GameActivity extends AppCompatActivity {
             select.setFlipped(true);
             //loops through deck and for each card:
             for(int i=0; i<18; i++){
-                //checks if it is also flipped
-                if(deck[i].isFlipped()){
+                //checks if it is also flipped and not the same card >:(
+                if(deck[i].isFlipped() && cardNum!=i){
                     //if it is, check if they match, updating correct vars
                     if(deck[i].toString().equals(select.toString())){
                         score += deck[i].getPoints();
