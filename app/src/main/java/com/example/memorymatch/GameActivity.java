@@ -230,17 +230,20 @@ public class GameActivity extends AppCompatActivity {
 
         Card select = deck[cardNum];
 
-
+        //checks if the card is already flipped
         if(!select.isFlipped()){
             select.setFlipped(true);
-            String card2 = select.toString();
+            //loops through deck and for each card:
             for(int i=0; i<18; i++){
+                //checks if it is also flipped
                 if(deck[i].isFlipped()){
+                    //if it is, check if they match, updating correct vars
                     if(deck[i].toString().equals(select.toString())){
                         score += deck[i].getPoints();
                         turns += deck[i].getTurns();
                         lives += deck[i].getLives();
                         startTime += deck[i].getTime();
+                    //if they don't match, unflip them and decrease lives if needed
                     }else{
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
@@ -251,6 +254,7 @@ public class GameActivity extends AppCompatActivity {
                             }
                         }
                     }
+                    //decreases turns and updates screen for zen mode (since timer is never called)
                     if(gameMode.equals("Zen")){
                         turns--;
                         TextView scoreText = findViewById(R.id.display);
