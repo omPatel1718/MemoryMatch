@@ -31,7 +31,15 @@ public class GameActivity extends AppCompatActivity {
         for(int i=0; i<deckSize; i+=2){
             Card add = makeCard(i);
             temp[i] = add;
-            temp[i+1] = add;
+            if(add.getPoints()>0){
+                temp[i+1] = new Card(add.getPoints(),"points");
+            }else if(add.getLives()>0){
+                temp[i+1] = new Card(add.getLives(),"lives");
+            }else if(add.getTurns()>0){
+                temp[i+1] = new Card(add.getTurns(),"turns");
+            }else if(add.getTime()>0){
+                temp[i+1] = new Card(add.getTime(),"time");
+            }
         }
 
         //randomizes deck order
