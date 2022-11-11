@@ -8,7 +8,7 @@ import android.view.View;
 
 public class InfoActivity extends AppCompatActivity {
 
-    String orgin = "";
+    String origin = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,15 +16,15 @@ public class InfoActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         //extract String data USERNAME
-        orgin = intent.getStringExtra("PREVSCREEN");
+        origin = intent.getStringExtra("PREVSCREEN");
     }
 
     public void back(View view) {
-        if(orgin.equals("fromMenu")) {
+        if(origin.equals("fromMenu")) {
             Intent intent = new Intent(InfoActivity.this, MenuActivity.class);
             startActivity(intent);
         }
-        if(orgin.equals("fromTitle")) {
+        if(origin.equals("fromTitle")) {
             Intent intent = new Intent(InfoActivity.this, TitleActivity.class);
             startActivity(intent);
         }
