@@ -14,8 +14,9 @@ import android.widget.TextView;
 public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
-    int startTime, lives, turns, score = 0;
+    int startTime, lives, turns, score, time = 0;
     String gameMode;
+    TextView scoreText;
     Card[] temp = new Card[deckSize];
     Card[] deck = new Card[deckSize];
 
@@ -23,6 +24,8 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        scoreText = findViewById(R.id.display);
 
         //initializes deck (but each pair is consecutive
         Intent intent = getIntent();
@@ -76,13 +79,13 @@ public class GameActivity extends AppCompatActivity {
          okay figured out some nightmare spagetti code that might work
          - since you can't increase the time remaining mid countdown,
          create a variable
+         - then use that variable as your actual timer and make timer recursive
          */
 
         new CountDownTimer((long) startTime, 1000) {
             public void onTick(long millisUntilFinished) {
                 startTime--;
-                TextView scoreText = findViewById(R.id.display);
-                int time = startTime/1000;
+                time = startTime/1000;
                 String text = "Score:" + score + "\nTimer: " + time;
                 if(gameMode.equals("Mastery")){
                     text +="\nLives: " + lives;
