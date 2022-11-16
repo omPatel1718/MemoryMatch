@@ -300,6 +300,7 @@ public class GameActivity extends AppCompatActivity {
         return new Point(location[0], location[1]);
     }
 
+    //actual discard animation
     public void disCard(View view){
         Point cardCoordinates = getLocationOnScreen(view);
         int cardX = cardCoordinates.x;
@@ -318,6 +319,7 @@ public class GameActivity extends AppCompatActivity {
         moveY.start();
     }
 
+    //turns an int into a card id and then calls disCard
     public void disCard(int cardNum){
         if(cardNum==0){
             disCard(findViewById(R.id.card1));
