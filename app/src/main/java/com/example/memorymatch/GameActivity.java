@@ -200,7 +200,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void cardClicked(View v){
         int cardNum=0;
-
+R.id.
         if(v.getId() == R.id.card1){
             cardNum = 0;
         }else if(v.getId() == R.id.card2){
