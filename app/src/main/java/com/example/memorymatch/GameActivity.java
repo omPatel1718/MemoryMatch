@@ -200,7 +200,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void cardClicked(View v){
         int cardNum=0;
-R.id.
+
         if(v.getId() == R.id.card1){
             cardNum = 0;
         }else if(v.getId() == R.id.card2){
@@ -255,6 +255,7 @@ R.id.
                         lives += deck[i].getLives();
                         startTime += deck[i].getTime();
                         disCard(v);
+                        disCard(i);
                     //if they don't match, unflip them and decrease lives if needed
                     }else{
                         deck[i].setFlipped(false);
@@ -315,5 +316,48 @@ R.id.
         ObjectAnimator moveY = ObjectAnimator.ofFloat(view, "translationY", 0f, floatY);
         moveY.setDuration(5);
         moveY.start();
+    }
+
+    public void disCard(int cardNum){
+        View v;
+        if(cardNum==0){
+            v = findViewById(R.id.card1);
+        }else if(cardNum==1){
+            v = findViewById(R.id.card2);
+        }else if(cardNum==2){
+            v = findViewById(R.id.card3);
+        }else if(cardNum==3){
+            v = findViewById(R.id.card4);
+        }else if(cardNum==4){
+            v = findViewById(R.id.card5);
+        }else if(cardNum==5){
+            v = findViewById(R.id.card6);
+        }else if(cardNum==6){
+            v = findViewById(R.id.card7);
+        }else if(cardNum==7){
+            v = findViewById(R.id.card8);
+        }else if(cardNum==8){
+            v = findViewById(R.id.card9);
+        }else if(cardNum==9){
+            v = findViewById(R.id.card10);
+        }else if(cardNum==10){
+            v = findViewById(R.id.card11);
+        }else if(cardNum==11){
+            v = findViewById(R.id.card12);
+        }else if(cardNum==12){
+            v = findViewById(R.id.card13);
+        }else if(cardNum==13){
+            v = findViewById(R.id.card14);
+        }else if(cardNum==14){
+            v = findViewById(R.id.card15);
+        }else if(cardNum==15){
+            v = findViewById(R.id.card16);
+        }else if(cardNum==16){
+            v = findViewById(R.id.card17);
+        }else{
+            v = findViewById(R.id.card18);
+        }
+
+        disCard(v);
     }
 }
