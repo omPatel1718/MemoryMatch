@@ -86,7 +86,6 @@ public class GameActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 startTime--;
                 time = startTime/1000;
-                log
                 String text = "Score:" + score + "\nTimer: " + time;
                 if(gameMode.equals("Mastery")){
                     text +="\nLives: " + lives;
