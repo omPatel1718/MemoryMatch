@@ -319,45 +319,42 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void disCard(int cardNum){
-        View v;
         if(cardNum==0){
-            v = findViewById(R.id.card1);
+            disCard(findViewById(R.id.card1));
         }else if(cardNum==1){
-            v = findViewById(R.id.card2);
+            disCard(findViewById(R.id.card2));
         }else if(cardNum==2){
-            v = findViewById(R.id.card3);
+            disCard(findViewById(R.id.card3));
         }else if(cardNum==3){
-            v = findViewById(R.id.card4);
+            disCard(findViewById(R.id.card4));
         }else if(cardNum==4){
-            v = findViewById(R.id.card5);
+            disCard(findViewById(R.id.card5));
         }else if(cardNum==5){
-            v = findViewById(R.id.card6);
+            disCard(findViewById(R.id.card6));
         }else if(cardNum==6){
-            v = findViewById(R.id.card7);
+            disCard(findViewById(R.id.card7));
         }else if(cardNum==7){
-            v = findViewById(R.id.card8);
+            disCard(findViewById(R.id.card8));
         }else if(cardNum==8){
-            v = findViewById(R.id.card9);
+            disCard(findViewById(R.id.card9));
         }else if(cardNum==9){
-            v = findViewById(R.id.card10);
+            disCard(findViewById(R.id.card10));
         }else if(cardNum==10){
-            v = findViewById(R.id.card11);
+            disCard(findViewById(R.id.card11));
         }else if(cardNum==11){
-            v = findViewById(R.id.card12);
+            disCard(findViewById(R.id.card12));
         }else if(cardNum==12){
-            v = findViewById(R.id.card13);
+            disCard(findViewById(R.id.card13));
         }else if(cardNum==13){
-            v = findViewById(R.id.card14);
+            disCard(findViewById(R.id.card14));
         }else if(cardNum==14){
-            v = findViewById(R.id.card15);
+            disCard(findViewById(R.id.card15));
         }else if(cardNum==15){
-            v = findViewById(R.id.card16);
+            disCard(findViewById(R.id.card16));
         }else if(cardNum==16){
-            v = findViewById(R.id.card17);
+            disCard(findViewById(R.id.card17));
         }else{
-            v = findViewById(R.id.card18);
+            disCard(findViewById(R.id.card18));
         }
-
-        disCard(v);
     }
 }
