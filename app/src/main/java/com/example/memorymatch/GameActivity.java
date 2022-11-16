@@ -254,6 +254,8 @@ public class GameActivity extends AppCompatActivity {
                         turns += deck[i].getTurns();
                         lives += deck[i].getLives();
                         startTime += deck[i].getTime();
+                        deck[i].setFlipped(false);
+                        select.setFlipped(false);
                         disCard(v);
                         disCard(i);
                     //if they don't match, unflip them and decrease lives if needed
