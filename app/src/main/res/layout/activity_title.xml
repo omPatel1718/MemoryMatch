@@ -20,17 +20,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.118" />
 
+
     <Spinner
         android:id="@+id/modeSpinner"
         android:layout_width="139dp"
         android:layout_height="45dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="128dp"
         android:entries="@array/game_mode"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.389"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
     <Button
         android:id="@+id/start"
@@ -55,5 +55,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.429"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/modeSpinner2"
+        android:layout_width="139dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="128dp"
+        android:entries="@array/difficulty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
