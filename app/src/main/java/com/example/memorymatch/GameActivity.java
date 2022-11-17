@@ -264,6 +264,8 @@ public class GameActivity extends AppCompatActivity {
                         select.setFlipped(false);
                         if(gameMode.equals("Mastery")){
                             lives--;
+                            String text = "Score:" + score + "\nTimer: " + time + "\nLives: " + lives;
+                            scoreText.setText(text);
                             if(lives==0){
                                 gameOver();
                             }
