@@ -247,7 +247,7 @@ public class GameActivity extends AppCompatActivity {
             //loops through deck and for each card:
             for(int i=0; i<18; i++){
                 //checks if it is also flipped and not the same card >:(
-                if(deck[i].isFlipped() && cardNum!=i){
+                if(deck[i].isFlipped() && cardNum!=i && !deck[i].isMatched()){
                     //if it is, check if they match, updating correct vars
                     if(deck[i].toString().equals(select.toString())){
                         score += deck[i].getPoints();
@@ -256,6 +256,9 @@ public class GameActivity extends AppCompatActivity {
                         startTime += deck[i].getTime();
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
+                        deck[i].setMatched(true);
+                        select.setMatched(true);
+
                         disCard(v);
                         disCard(i);
                     //if they don't match, unflip them and decrease lives if needed
