@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class TitleActivity extends AppCompatActivity {
 
     Spinner gameSpinner, difficultySpinner;
-    String spinnerSelectedText;
+    String spinnerSelectedTextGame, spinnerSelectedTextDifficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,11 @@ public class TitleActivity extends AppCompatActivity {
     }
 
     public void startGame(View view) {
-        spinnerSelectedText = gameSpinner.getSelectedItem().toString();
+        spinnerSelectedTextGame = gameSpinner.getSelectedItem().toString();
+        spinnerSelectedTextDifficulty = difficultySpinner.getSelectedItem().toString();
         Intent intent = new Intent(TitleActivity.this, GameActivity.class);
-        Log.i("HELP", "this is the spinner text: " + spinnerSelectedText);
-        intent.putExtra("GAMEMODE", spinnerSelectedText);
+        intent.putExtra("GAMEMODE", spinnerSelectedTextGame);
+        intent.putExtra("DIFFICULTY", spinnerSelectedTextDifficulty);
         startActivity(intent);
     }
 
