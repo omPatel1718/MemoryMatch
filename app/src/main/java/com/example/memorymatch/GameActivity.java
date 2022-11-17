@@ -336,6 +336,7 @@ public class GameActivity extends AppCompatActivity {
         return new Point(location[0], location[1]);
     }
 
+
     //actual discard animation
     public void disCard(View view){
         Point cardCoordinates = getLocationOnScreen(view);

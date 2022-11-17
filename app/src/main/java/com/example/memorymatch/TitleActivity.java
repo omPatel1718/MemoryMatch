@@ -11,14 +11,14 @@ import android.widget.Toast;
 
 public class TitleActivity extends AppCompatActivity {
 
-    Spinner spinner;
+    Spinner gameSpinner, difficultySpinner;
     String spinnerSelectedText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
-        spinner = findViewById(R.id.modeSpinner);
+        gameSpinner = findViewById(R.id.modeSpinner);
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -27,7 +27,7 @@ public class TitleActivity extends AppCompatActivity {
     }
 
     public void startGame(View view) {
-        spinnerSelectedText = spinner.getSelectedItem().toString();
+        spinnerSelectedText = gameSpinner.getSelectedItem().toString();
         Intent intent = new Intent(TitleActivity.this, GameActivity.class);
         Log.i("HELP", "this is the spinner text: " + spinnerSelectedText);
         intent.putExtra("GAMEMODE", spinnerSelectedText);
