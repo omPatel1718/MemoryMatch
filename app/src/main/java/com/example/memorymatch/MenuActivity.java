@@ -18,8 +18,7 @@ public class MenuActivity extends AppCompatActivity {
         gm = getIntent().getStringExtra("GAMEMODE");
 
         TextView modeText = findViewById(R.id.gameMode1);
-        String text = "Game Mode: " + gm;
-        modeText.setText(text);
+        modeText.setText("Game Mode: " + gm);
     }
 
     public void backToGame(View view) {
