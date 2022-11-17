@@ -250,17 +250,19 @@ public class GameActivity extends AppCompatActivity {
                 if(deck[i].isFlipped() && cardNum!=i && !deck[i].isMatched()){
                     //if it is, check if they match, updating correct vars
                     if(deck[i].toString().equals(select.toString())){
-                        score += deck[i].getPoints();
-                        turns += deck[i].getTurns();
-                        lives += deck[i].getLives();
-                        startTime += deck[i].getTime();
-                        deck[i].setFlipped(false);
-                        select.setFlipped(false);
-                        deck[i].setMatched(true);
-                        select.setMatched(true);
-
+                        updateMatched(deck[i],select);
                         disCard(v);
                         disCard(i);
+
+                        boolean temp = false;
+                        for (Card c: deck) {
+                            if(!c.isMatched()){
+                                temp = true;
+                            }
+                        }
+                        if(temp){
+                            shuffle();
+                        }
                     //if they don't match, unflip them and decrease lives if needed
                     }else{
                         deck[i].setFlipped(false);
@@ -287,6 +289,33 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void shuffle(){
+        for(int i=0; i<deckSize; i+=2){
+            Card add = makeCard(i);
+            temp[i] = add;
+            if(add.getPoints()>0){
+                temp[i+1] = new Card(add.getPoints(),"points");
+            }else if(add.getLives()>0){
+                temp[i+1] = new Card(add.getLives(),"lives");
+            }else if(add.getTurns()>0){
+                temp[i+1] = new Card(add.getTurns(),"turns");
+            }else if(add.getTime()>0){
+                temp[i+1] = new Card(add.getTime(),"time");
+            }
+        }
+    }
+
+    public void updateMatched(Card one, Card two){
+        score += one.getPoints();
+        turns += one.getTurns();
+        lives += one.getLives();
+        startTime += one.getTime();
+        one.setFlipped(false);
+        two.setFlipped(false);
+        one.setMatched(true);
+        two.setMatched(true);
     }
 
     public void pause(View view) {
