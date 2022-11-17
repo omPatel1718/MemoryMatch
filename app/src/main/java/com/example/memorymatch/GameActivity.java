@@ -84,9 +84,9 @@ public class GameActivity extends AppCompatActivity {
 
         new CountDownTimer((long) startTime, 1000) {
             public void onTick(long millisUntilFinished) {
-                startTime--;
+                startTime-=1000;
                 time = startTime/1000;
-                String text = "Score:" + score + "\nTimer: " + time;
+                String text = "Score: " + score + "\nTimer: " + time;
                 if(gameMode.equals("Mastery")){
                     text +="\nLives: " + lives;
                 }
