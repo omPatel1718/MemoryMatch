@@ -15,7 +15,7 @@ public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
     int startTime, lives, turns, score, time = 0;
-    String gameMode;
+    String gameMode, difficulty;
     TextView scoreText;
     Card[] temp = new Card[deckSize];
     Card[] deck = new Card[deckSize];
@@ -30,6 +30,7 @@ public class GameActivity extends AppCompatActivity {
         //initializes deck (but each pair is consecutive
         Intent intent = getIntent();
         gameMode = intent.getStringExtra("GAMEMODE");
+        difficulty = intent.getStringExtra("DIFFICULTY");
         Log.i("HELP", "this is the gameMode text: " + gameMode);
         for(int i=0; i<deckSize; i+=2){
             Card add = makeCard(i);
@@ -54,19 +55,61 @@ public class GameActivity extends AppCompatActivity {
             deck[rand] = temp[i];
         }
 
+        if(difficulty.equals("Easy")){
+
+        }else if(difficulty.equals("Medium")){
+
+        }else if(difficulty.equals("Hard")){
+
+        }else{
+
+        }
+
         //if blitz, classic, or mastery, set up timer
         if(gameMode.equals("Classic")){
-            startTime = 60000;
+            if(difficulty.equals("Easy")){
+                startTime = 60000;
+            }else if(difficulty.equals("Medium")){
+                startTime = 50000;
+            }else if(difficulty.equals("Hard")){
+                startTime = 40000;
+            }else{
+                startTime = 30000;
+            }
             timer();
         }else if(gameMode.equals("Mastery")){
-            startTime = 60000;
+            if(difficulty.equals("Easy")){
+                startTime = 60000;
+            }else if(difficulty.equals("Medium")){
+                startTime = 50000;
+            }else if(difficulty.equals("Hard")){
+                startTime = 40000;
+            }else{
+                startTime = 30000;
+            }
             lives = 15;
             timer();
         }else if(gameMode.equals("Blitz")){
-            startTime = 30000;
+            if(difficulty.equals("Easy")){
+                startTime = 30000;
+            }else if(difficulty.equals("Medium")){
+                startTime = 25000;
+            }else if(difficulty.equals("Hard")){
+                startTime = 20000;
+            }else{
+                startTime = 15000;
+            }
             timer();
         }else if(gameMode.equals("Zen")){
-            turns = 15;
+            if(difficulty.equals("Easy")){
+                turns = 25;
+            }else if(difficulty.equals("Medium")){
+                turns = 20;
+            }else if(difficulty.equals("Hard")){
+                turns = 15;
+            }else{
+                turns = 10;
+            }
         }
     }
 
@@ -107,7 +150,7 @@ public class GameActivity extends AppCompatActivity {
          check for gamemode, randomize card type
 
          classic - 75% points 25% time
-         zen - 90% points 10% turns (odds of a turn increase less than classic's time)
+         zen - 60% points 40% turns (odds of a turn increase less than classic's time)
          blitz - 60% points 40% time (odds of a time increase more than classic's time)
          mastery - 80% points 15% time 5% lives (this is hard mode, time and lives should be lower odds)
         */
@@ -123,7 +166,7 @@ public class GameActivity extends AppCompatActivity {
                 type = "time";
             }
         }else if(gameMode.equals("Zen")){
-            if(rand<91){
+            if(rand<61){
                 type = "points";
             }else{
                 type = "turns";
