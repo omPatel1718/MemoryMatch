@@ -189,52 +189,21 @@ public class GameActivity extends AppCompatActivity {
 
         /*
          randomize values based on what type of card and game mode
-         turns - 1, 3, or 5
+         turns - 1, 2, 3, 4, or 5
          lives - 1, 2, or 3
-         time - 3, 5, or 10
-         blitz time - 2, 3, or 5
+         time - 3, 4, 5, 6, 7, 8, 9, or 10
+         blitz time - 2, 3, 4, or 5
         */
-        rand = (int)(Math.random()*3)+1;
         if(type.equals("turns")){
-            if(rand==1){
-                value = 1;
-            }else if(rand==2){
-                value = 3;
-            }else{
-                value = 5;
-            }
+            value = (int)(Math.random()*5)+1;
         }else if(type.equals("lives")){
-            if(rand==1){
-                value = 1;
-            }else if(rand==2){
-                value = 2;
-            }else{
-                value = 3;
-            }
+            value = (int)(Math.random()*3)+1;
         }else if(type.equals("time") && gameMode.equals("Blitz")){
-            if(rand==1){
-                value = 2000;
-            }else if(rand==2){
-                value = 3000;
-            }else{
-                value = 5000;
-            }
+            value = 1000 * (int)(Math.random()*4)+2;
         }else if(type.equals("time")){
-            if(rand==1){
-                value = 3000;
-            }else if(rand==2){
-                value = 5000;
-            }else{
-                value = 10000;
-            }
+            value = 1000 * (int)(Math.random()*8)+3;
         }else{
-            if(rand==1){
-                value = 100;
-            }else if(rand==2){
-                value = 200;
-            }else{
-                value = 300;
-            }
+            value = 50 * (int)(Math.random()*5)+2;
         }
         return new Card(value, type);
     }
