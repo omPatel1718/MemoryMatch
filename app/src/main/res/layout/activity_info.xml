@@ -8,9 +8,9 @@
 
     <TextView
         android:id="@+id/instructions"
-        android:layout_width="662dp"
-        android:layout_height="307dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="661dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="72dp"
 
         android:text="To win the game, you must match each pair of cards. When you start the game, you will be given a set amount of cards to match.
     \nClassic: you are given a time limit to match as many cards as possible.
@@ -19,7 +19,7 @@
     \nYou should match each pair before either the amount of time or turns remaining runs out."
         android:textSize="23dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,5 +35,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.005" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="232dp"
+        android:text="<---"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.807" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="244dp"
+        android:text="--->"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.807" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
