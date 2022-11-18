@@ -20,11 +20,12 @@ public class GameActivity extends AppCompatActivity {
     Card[] temp = new Card[deckSize];
     Card[] deck = new Card[deckSize];
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
         scoreText = findViewById(R.id.display);
 
         //initializes deck (but each pair is consecutive
@@ -112,6 +113,8 @@ public class GameActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
     public void timer(){
         /*
