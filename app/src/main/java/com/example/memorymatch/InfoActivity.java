@@ -30,7 +30,7 @@ public class InfoActivity extends AppCompatActivity {
             infoText.setText("Welcome to Memory Match!\nThis game is designed to test your memory.\nWhen you start the game, you'll get 18 cards to match" +
                     " and matching a pair will net you rewards!");
         }else if(page==2){
-            infoText.setText("");
+            infoText.setText("Classic: Cards get you points or more time. Try to make as many ");
         }
     }
 
