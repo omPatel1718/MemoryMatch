@@ -3,6 +3,7 @@ package com.example.memorymatch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -36,14 +37,15 @@ public class GameActivity extends AppCompatActivity {
         for(int i=0; i<deckSize; i+=2){
             Card add = makeCard(i);
             temp[i] = add;
+            Context tempImage = add.getImage();
             if(add.getPoints()>0){
-                temp[i+1] = new Card(add.getPoints(),"points");
+                temp[i+1] = new Card(add.getPoints(),"points", tempImage);
             }else if(add.getLives()>0){
-                temp[i+1] = new Card(add.getLives(),"lives");
+                temp[i+1] = new Card(add.getLives(),"lives", tempImage);
             }else if(add.getTurns()>0){
-                temp[i+1] = new Card(add.getTurns(),"turns");
+                temp[i+1] = new Card(add.getTurns(),"turns", tempImage);
             }else if(add.getTime()>0){
-                temp[i+1] = new Card(add.getTime(),"time");
+                temp[i+1] = new Card(add.getTime(),"time", tempImage);
             }
         }
 
@@ -208,6 +210,11 @@ public class GameActivity extends AppCompatActivity {
         }else{
             value = 50 * (int)(Math.random()*5)+2;
         }
+        Context cardImage;
+        if(index == 0){
+
+        }
+        
         return new Card(value, type);
     }
 
@@ -310,14 +317,15 @@ public class GameActivity extends AppCompatActivity {
         for(int i=0; i<deckSize; i+=2){
             Card add = makeCard(i);
             temp[i] = add;
+            Context tempImage = add.getImage();
             if(add.getPoints()>0){
-                temp[i+1] = new Card(add.getPoints(),"points");
+                temp[i+1] = new Card(add.getPoints(),"points", tempImage);
             }else if(add.getLives()>0){
-                temp[i+1] = new Card(add.getLives(),"lives");
+                temp[i+1] = new Card(add.getLives(),"lives", tempImage);
             }else if(add.getTurns()>0){
-                temp[i+1] = new Card(add.getTurns(),"turns");
+                temp[i+1] = new Card(add.getTurns(),"turns", tempImage);
             }else if(add.getTime()>0){
-                temp[i+1] = new Card(add.getTime(),"time");
+                temp[i+1] = new Card(add.getTime(),"time", tempImage);
             }
         }
     }
