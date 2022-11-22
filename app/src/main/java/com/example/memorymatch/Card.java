@@ -35,6 +35,34 @@ public class Card {
         image = imageName;
     }
 
+    public Card(int value, String type){
+        flipped = false;
+        matched = false;
+
+        if(type.equals("points")){                         //points
+            points = value;
+            time = 0;
+            turns = 0;
+            lives = 0;
+        }else if(type.equals("time")){                   //time
+            points = 0;
+            time = value;
+            turns = 0;
+            lives = 0;
+        }else if(type.equals("turns")){                   //turns       (Zen only)
+            points = 0;
+            turns = 0;
+            time = value;
+            lives = 0;
+        }else if(type.equals("lives")){                     //lives     (Mastery only)
+            points = 0;
+            time = 0;
+            turns = 0;
+            lives = value;
+        }
+        image = null;
+    }
+
     public void clicked(){
         if(!flipped){
             flipped = true;
