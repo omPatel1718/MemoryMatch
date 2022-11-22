@@ -58,16 +58,6 @@ public class GameActivity extends AppCompatActivity {
             deck[rand] = temp[i];
         }
 
-        if(difficulty.equals("Easy")){
-
-        }else if(difficulty.equals("Medium")){
-
-        }else if(difficulty.equals("Hard")){
-
-        }else{
-
-        }
-
         //if blitz, classic, or mastery, set up timer
         if(gameMode.equals("Classic")){
             if(difficulty.equals("Easy")){
