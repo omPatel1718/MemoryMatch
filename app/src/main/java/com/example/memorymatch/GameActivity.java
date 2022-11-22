@@ -205,7 +205,7 @@ public class GameActivity extends AppCompatActivity {
 
         }
         
-        return new Card(value, type);
+        return new Card(value, type, cardImage);
     }
 
 
