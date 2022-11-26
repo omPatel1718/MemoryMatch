@@ -128,7 +128,7 @@ public class GameActivity extends AppCompatActivity {
          depicts a simple 30 second timer
          we need to figure out how to pause and add to said timer mid countdown
 
-         okay figured out some nightmare spagetti code that might work
+         okay figured out some nightmare spaghetti code that might work
          - since you can't increase the time remaining mid countdown,
          create a variable
          - then use that variable as your actual timer and make timer recursive
@@ -136,6 +136,7 @@ public class GameActivity extends AppCompatActivity {
 
         new CountDownTimer((long) startTime, 1000) {
             public void onTick(long millisUntilFinished) {
+                //updates score display
                 startTime-=1000;
                 time = startTime/1000;
                 String text = "Score: " + score + "\nTimer: " + time;
@@ -143,6 +144,17 @@ public class GameActivity extends AppCompatActivity {
                     text +="\nLives: " + lives;
                 }
                 scoreText.setText(text);
+
+                //updates card faces
+                for(int i=0; i<deckSize; i++){
+                    if(deck[i].isFlipped()){
+                        //take this card int and do the flipped update code
+                        getButtonFromCard(i);
+                    }else{
+                        //take this card int and do the back side update code
+                        getButtonFromCard(i);
+                    }
+                }
             }
 
             public void onFinish() {
@@ -382,43 +394,7 @@ public class GameActivity extends AppCompatActivity {
 
     //turns an int into a card id and then calls disCard
     public void disCard(int cardNum){
-        if(cardNum==0){
-            disCard(findViewById(R.id.card1));
-        }else if(cardNum==1){
-            disCard(findViewById(R.id.card2));
-        }else if(cardNum==2){
-            disCard(findViewById(R.id.card3));
-        }else if(cardNum==3){
-            disCard(findViewById(R.id.card4));
-        }else if(cardNum==4){
-            disCard(findViewById(R.id.card5));
-        }else if(cardNum==5){
-            disCard(findViewById(R.id.card6));
-        }else if(cardNum==6){
-            disCard(findViewById(R.id.card7));
-        }else if(cardNum==7){
-            disCard(findViewById(R.id.card8));
-        }else if(cardNum==8){
-            disCard(findViewById(R.id.card9));
-        }else if(cardNum==9){
-            disCard(findViewById(R.id.card10));
-        }else if(cardNum==10){
-            disCard(findViewById(R.id.card11));
-        }else if(cardNum==11){
-            disCard(findViewById(R.id.card12));
-        }else if(cardNum==12){
-            disCard(findViewById(R.id.card13));
-        }else if(cardNum==13){
-            disCard(findViewById(R.id.card14));
-        }else if(cardNum==14){
-            disCard(findViewById(R.id.card15));
-        }else if(cardNum==15){
-            disCard(findViewById(R.id.card16));
-        }else if(cardNum==16){
-            disCard(findViewById(R.id.card17));
-        }else{
-            disCard(findViewById(R.id.card18));
-        }
+        disCard(getButtonFromCard(cardNum));
     }
 
     public void flipAll(int sec){
@@ -437,5 +413,45 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         }.start();
+    }
+
+    public int getButtonFromCard(int cardNum){
+        if(cardNum==0){
+            return R.id.card1;
+        }else if(cardNum==1){
+            return R.id.card2;
+        }else if(cardNum==2){
+            return R.id.card3;
+        }else if(cardNum==3){
+            return R.id.card4;
+        }else if(cardNum==4){
+            return R.id.card5;
+        }else if(cardNum==5){
+            return R.id.card6;
+        }else if(cardNum==6){
+            return R.id.card7;
+        }else if(cardNum==7){
+            return R.id.card8;
+        }else if(cardNum==8){
+            return R.id.card9;
+        }else if(cardNum==9){
+            return R.id.card10;
+        }else if(cardNum==10){
+            return R.id.card11;
+        }else if(cardNum==11){
+            return R.id.card12;
+        }else if(cardNum==12){
+            return R.id.card13;
+        }else if(cardNum==13){
+            return R.id.card14;
+        }else if(cardNum==14){
+            return R.id.card15;
+        }else if(cardNum==15){
+            return R.id.card16;
+        }else if(cardNum==16){
+            return R.id.card17;
+        }else{
+            return R.id.card18;
+        }
     }
 }
