@@ -21,8 +21,6 @@ public class GameActivity extends AppCompatActivity {
     Card[] temp = new Card[deckSize];
     Card[] deck = new Card[deckSize];
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +78,15 @@ public class GameActivity extends AppCompatActivity {
             }else{
                 startTime = 30000;
             }
-            lives = 15;
+            if(difficulty.equals("Easy")){
+                startTime = 20;
+            }else if(difficulty.equals("Medium")){
+                startTime = 15;
+            }else if(difficulty.equals("Hard")){
+                startTime = 10;
+            }else{
+                startTime = 5;
+            }
             timer();
         }else if(gameMode.equals("Blitz")){
             if(difficulty.equals("Easy")){
@@ -104,9 +110,17 @@ public class GameActivity extends AppCompatActivity {
                 turns = 10;
             }
         }
+
+        if(difficulty.equals("Easy")){
+            flipAll(10000);
+        }else if(difficulty.equals("Medium")){
+            flipAll(5000);
+        }else if(difficulty.equals("Hard")){
+            flipAll(3000);
+        }else{
+            flipAll(2000);
+        }
     }
-
-
 
     public void timer(){
         /*
@@ -184,10 +198,10 @@ public class GameActivity extends AppCompatActivity {
 
         /*
          randomize values based on what type of card and game mode
-         turns - 1, 2, 3, 4, or 5
-         lives - 1, 2, or 3
-         time - 3, 4, 5, 6, 7, 8, 9, or 10
-         blitz time - 2, 3, 4, or 5
+         turns - 1-5
+         lives - 1-3
+         time - 3-10
+         blitz time - 2-5
         */
         if(type.equals("turns")){
             value = (int)(Math.random()*5)+1;
@@ -207,8 +221,6 @@ public class GameActivity extends AppCompatActivity {
         
         return new Card(value, type);
     }
-
-
 
     public void cardClicked(View v){
         int cardNum=0;
@@ -349,7 +361,6 @@ public class GameActivity extends AppCompatActivity {
         return new Point(location[0], location[1]);
     }
 
-
     //actual discard animation
     public void disCard(View view){
         Point cardCoordinates = getLocationOnScreen(view);
@@ -408,5 +419,23 @@ public class GameActivity extends AppCompatActivity {
         }else{
             disCard(findViewById(R.id.card18));
         }
+    }
+
+    public void flipAll(int sec){
+        for(int i=0; i<deckSize; i++){
+            deck[i].setFlipped(true);
+        }
+
+        new CountDownTimer((long) sec, 1000) {
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                for(int i=0; i<deckSize; i++){
+                    deck[i].setFlipped(false);
+                }
+            }
+        }.start();
     }
 }

@@ -27,12 +27,16 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public void pageRight(View v){
-        page++;
+        if(page<5){
+            page++;
+        }
         pageCheck();
     }
 
     public void pageLeft(View v){
-        page--;
+        if(page>1){
+            page--;
+        }
         pageCheck();
     }
 
