@@ -224,7 +224,7 @@ public class GameActivity extends AppCompatActivity {
         }else if(type.equals("time")){
             value = 1000 * (int)(Math.random()*8)+3;
         }else{
-            value = 50 * (int)(Math.random()*5)+2;
+            value = 50 * ((int)(Math.random()*5)+2);
         }
         Context cardImage;
         if(index == 0){
