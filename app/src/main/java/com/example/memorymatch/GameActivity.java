@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -35,7 +36,7 @@ public class GameActivity extends AppCompatActivity {
         for(int i=0; i<deckSize; i+=2){
             Card add = makeCard(i);
             temp[i] = add;
-            Context tempImage = add.getImage();
+            int tempImage = add.getImage();
             if(add.getPoints()>0){
                 temp[i+1] = new Card(add.getPoints(),"points", tempImage);
             }else if(add.getLives()>0){
@@ -44,6 +45,25 @@ public class GameActivity extends AppCompatActivity {
                 temp[i+1] = new Card(add.getTurns(),"turns", tempImage);
             }else if(add.getTime()>0){
                 temp[i+1] = new Card(add.getTime(),"time", tempImage);
+            }
+            if (i == 0 || i == 1) {
+                add.setImage(R.drawable.card_the_chariot_small);
+            } else if (i == 2 || i == 3) {
+                add.setImage(R.drawable.card_the_big_x_small);
+            } else if (i == 4 || i == 5) {
+                add.setImage(R.drawable.card_the_fool_small);
+            } else if (i == 6 || i == 7) {
+                add.setImage(R.drawable.card_the_hermit_small);
+            } else if (i == 8 || i == 9) {
+                add.setImage(R.drawable.card_the_magician_small);
+            } else if (i == 10 || i == 11) {
+                add.setImage(R.drawable.card_the_moon_small);
+            } else if (i == 12 || i == 13) {
+                add.setImage(R.drawable.card_the_tower_small);
+            } else if (i == 14 || i == 15) {
+                add.setImage(R.drawable.card_the_world_small);
+            } else {
+                add.setImage(R.drawable.card_the_wheel_of_fortune_small);
             }
         }
 
@@ -331,7 +351,7 @@ public class GameActivity extends AppCompatActivity {
         for(int i=0; i<deckSize; i+=2){
             Card add = makeCard(i);
             temp[i] = add;
-            Context tempImage = add.getImage();
+            int tempImage = add.getImage();
             if(add.getPoints()>0){
                 temp[i+1] = new Card(add.getPoints(),"points", tempImage);
             }else if(add.getLives()>0){

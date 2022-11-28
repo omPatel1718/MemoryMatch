@@ -1,13 +1,14 @@
 package com.example.memorymatch;
 
 import android.content.Context;
+import android.media.Image;
 
 public class Card {
     int points, turns, time, lives;
     boolean flipped, matched;
-    Context image;
+    int image;
 
-    public Card(int value, String type, Context imageName){
+    public Card(int value, String type, int imageName){
         flipped = false;
         matched = false;
 
@@ -60,7 +61,7 @@ public class Card {
             turns = 0;
             lives = value;
         }
-        image = null;
+        image = 0;
     }
 
     public void clicked(){
@@ -140,11 +141,11 @@ public class Card {
         this.matched = matched;
     }
 
-    public Context getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(Context image) {
+    public void setImage(int image) {
         this.image = image;
     }
 }
