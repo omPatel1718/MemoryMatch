@@ -393,8 +393,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     //turns an int into a card id and then calls disCard
-    public View disCard(int cardNum){
-        return findViewById(getButtonFromCard(cardNum));
+    public void disCard(int cardNum){
+        disCard(findViewById(getButtonFromCard(cardNum)));
     }
 
     public void flipAll(int sec){
