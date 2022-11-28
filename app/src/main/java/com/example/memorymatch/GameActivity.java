@@ -220,9 +220,9 @@ public class GameActivity extends AppCompatActivity {
         }else if(type.equals("lives")){
             value = (int)(Math.random()*3)+1;
         }else if(type.equals("time") && gameMode.equals("Blitz")){
-            value = 1000 * (int)(Math.random()*4)+2;
+            value = 1000 * ((int)(Math.random()*4)+2);
         }else if(type.equals("time")){
-            value = 1000 * (int)(Math.random()*8)+3;
+            value = 1000 * ((int)(Math.random()*8)+3);
         }else{
             value = 50 * ((int)(Math.random()*5)+2);
         }
