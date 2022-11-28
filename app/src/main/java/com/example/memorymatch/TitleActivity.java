@@ -19,6 +19,7 @@ public class TitleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
         gameSpinner = findViewById(R.id.modeSpinner);
+        difficultySpinner = findViewById(R.id.modeSpinner2);
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
