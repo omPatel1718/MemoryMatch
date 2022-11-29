@@ -301,8 +301,8 @@ public class GameActivity extends AppCompatActivity {
 
         Card select = deck[cardNum];
 
-        //checks if the card is already flipped
-        if(!select.isFlipped()){
+        //checks if the card is already flipped and if in freeze state
+        if(!select.isFlipped() && !paused){
             select.setFlipped(true);
             v.setBackgroundResource(select.getImage());
             //loops through deck and for each card:
