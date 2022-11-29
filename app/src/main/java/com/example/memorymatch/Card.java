@@ -90,7 +90,7 @@ public class Card {
             value = lives;
             type = "lives";
         }
-        return "" + value + " " + type;
+        return "" + value + " " + type + " " + image;
     }
 
     public int getPoints() {
