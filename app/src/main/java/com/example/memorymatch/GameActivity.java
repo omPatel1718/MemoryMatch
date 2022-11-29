@@ -185,7 +185,10 @@ public class GameActivity extends AppCompatActivity {
                 if(startTime>0){
                     timer();
                 }
-                gameOver();
+                if(!paused){
+                    gameOver();
+                }
+                paused = true;
             }
         }.start();
     }
