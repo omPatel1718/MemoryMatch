@@ -394,6 +394,7 @@ public class GameActivity extends AppCompatActivity {
         paused = true;
         clock.cancel();
         Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+        intent.putExtra("GAMEMODE", gameMode);
         startActivity(intent);
     }
 
