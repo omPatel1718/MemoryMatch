@@ -17,6 +17,7 @@ public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
     int startTime, lives, turns, score, time = 0;
+    boolean paused;
     String gameMode, difficulty;
     TextView scoreText;
     Card[] temp = new Card[deckSize];
@@ -27,6 +28,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         scoreText = findViewById(R.id.display);
+        paused = false;
 
         //initializes deck (but each pair is consecutive
         Intent intent = getIntent();
@@ -157,7 +159,9 @@ public class GameActivity extends AppCompatActivity {
         new CountDownTimer((long) startTime, 1000) {
             public void onTick(long millisUntilFinished) {
                 //updates score display
-                startTime-=1000;
+                if(!paused){
+                    startTime-=1000;
+                }
                 time = startTime/1000;
                 String text = "Score: " + score + "\nTimer: " + time;
                 if(gameMode.equals("Mastery")){
@@ -377,6 +381,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void pause(View view) {
+        paused = true;
         Intent intent = new Intent(GameActivity.this, MenuActivity.class);
         startActivity(intent);
     }
@@ -419,6 +424,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void flipAll(int sec){
+        paused = true;
         for(int i=0; i<deckSize; i++){
             deck[i].setFlipped(true);
         }
@@ -429,6 +435,7 @@ public class GameActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
+                paused = false;
                 for(int i=0; i<deckSize; i++){
                     deck[i].setFlipped(false);
                 }
