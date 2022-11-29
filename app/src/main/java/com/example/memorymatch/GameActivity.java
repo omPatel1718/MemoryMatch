@@ -89,7 +89,6 @@ public class GameActivity extends AppCompatActivity {
             }else{
                 startTime = 30000;
             }
-            timer();
         }else if(gameMode.equals("Mastery")){
             if(difficulty.equals("Easy")){
                 startTime = 60000;
@@ -109,7 +108,6 @@ public class GameActivity extends AppCompatActivity {
             }else{
                 startTime = 5;
             }
-            timer();
         }else if(gameMode.equals("Blitz")){
             if(difficulty.equals("Easy")){
                 startTime = 30000;
@@ -120,7 +118,6 @@ public class GameActivity extends AppCompatActivity {
             }else{
                 startTime = 15000;
             }
-            timer();
         }else if(gameMode.equals("Zen")){
             if(difficulty.equals("Easy")){
                 turns = 25;
@@ -141,6 +138,15 @@ public class GameActivity extends AppCompatActivity {
             flipAll(3000);
         }else{
             flipAll(2000);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(!gameMode.equals("Zen")){
+            timer();
         }
     }
 
