@@ -29,7 +29,6 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         scoreText = findViewById(R.id.display);
-        paused = false;
 
         //initializes deck (but each pair is consecutive
         Intent intent = getIntent();
@@ -146,6 +145,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        paused = false;
         if(!gameMode.equals("Zen")){
             timer();
         }
