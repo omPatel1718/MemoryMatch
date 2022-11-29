@@ -48,25 +48,7 @@ public class GameActivity extends AppCompatActivity {
             }else if(add.getTime()>0){
                 temp[i+1] = new Card(add.getTime(),"time", tempImage);
             }
-            if (i == 0 || i == 1) {
-                add.setImage(R.drawable.card_the_chariot_small);
-            } else if (i == 2 || i == 3) {
-                add.setImage(R.drawable.card_the_big_x_small);
-            } else if (i == 4 || i == 5) {
-                add.setImage(R.drawable.card_the_fool_small);
-            } else if (i == 6 || i == 7) {
-                add.setImage(R.drawable.card_the_hermit_small);
-            } else if (i == 8 || i == 9) {
-                add.setImage(R.drawable.card_the_magician_small);
-            } else if (i == 10 || i == 11) {
-                add.setImage(R.drawable.card_the_moon_small);
-            } else if (i == 12 || i == 13) {
-                add.setImage(R.drawable.card_the_tower_small);
-            } else if (i == 14 || i == 15) {
-                add.setImage(R.drawable.card_the_world_small);
-            } else {
-                add.setImage(R.drawable.card_the_wheel_of_fortune_small);
-            }
+            add.setImage(whichImage(i));
         }
 
         //randomizes deck order
@@ -268,6 +250,30 @@ public class GameActivity extends AppCompatActivity {
         return new Card(value, type);
     }
 
+    //helper method that assigns images to card pairs
+    public int whichImage(int i){
+        if (i == 0 || i == 1) {
+            return R.drawable.card_the_chariot_small;
+        } else if (i == 2 || i == 3) {
+            return R.drawable.card_the_big_x_small;
+        } else if (i == 4 || i == 5) {
+            return R.drawable.card_the_fool_small;
+        } else if (i == 6 || i == 7) {
+            return R.drawable.card_the_hermit_small;
+        } else if (i == 8 || i == 9) {
+            return R.drawable.card_the_magician_small;
+        } else if (i == 10 || i == 11) {
+            return R.drawable.card_the_moon_small;
+        } else if (i == 12 || i == 13) {
+            return R.drawable.card_the_tower_small;
+        } else if (i == 14 || i == 15) {
+            return R.drawable.card_the_world_small;
+        } else {
+            return R.drawable.card_the_wheel_of_fortune_small;
+        }
+    }
+
+    //checks what card was clicked, if they match, and changes variables, positions, animations, etc. accordingly
     public void cardClicked(View v){
         int cardNum=0;
 
@@ -362,6 +368,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    //redeals 18 new cards
     public void shuffle(){
         for(int i=0; i<deckSize; i+=2){
             Card add = makeCard(i);
@@ -379,6 +386,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    //helper method that updates variables if cards match
     public void updateMatched(Card one, Card two){
         score += one.getPoints();
         turns += one.getTurns();
@@ -390,6 +398,7 @@ public class GameActivity extends AppCompatActivity {
         two.setMatched(true);
     }
 
+    //calls menu activity and pauses game
     public void pause(View view) {
         paused = true;
         clock.cancel();
@@ -398,6 +407,7 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //calls gameOver screen and ends game
     public void gameOver() {
         Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
         intent.putExtra("MODE", gameMode);
@@ -405,6 +415,7 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //helper method that finds an objects coordinates
     public static Point getLocationOnScreen(View view) {
         int[] location = new int[2];
         view.getLocationOnScreen(location);
