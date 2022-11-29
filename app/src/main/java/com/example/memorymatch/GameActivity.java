@@ -22,6 +22,7 @@ public class GameActivity extends AppCompatActivity {
     TextView scoreText;
     Card[] temp = new Card[deckSize];
     Card[] deck = new Card[deckSize];
+    CountDownTimer clock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,7 +163,7 @@ public class GameActivity extends AppCompatActivity {
          - then use that variable as your actual timer and make timer recursive
          */
 
-        new CountDownTimer((long) startTime, 1000) {
+        clock = new CountDownTimer((long) startTime, 1000) {
             public void onTick(long millisUntilFinished) {
                 //updates score display
                 if(!paused){
@@ -391,6 +392,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void pause(View view) {
         paused = true;
+        clock.cancel();
         Intent intent = new Intent(GameActivity.this, MenuActivity.class);
         startActivity(intent);
     }
