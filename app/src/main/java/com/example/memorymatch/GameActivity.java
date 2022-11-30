@@ -447,6 +447,7 @@ public class GameActivity extends AppCompatActivity {
         disCard(findViewById(getButtonFromCard(cardNum)));
     }
 
+    /*
     public void flipAll(int sec){
         paused = true;
         for(int i=0; i<deckSize; i++){
@@ -466,6 +467,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }.start();
     }
+     */
 
     public int getButtonFromCard(int cardNum){
         if(cardNum==0){
@@ -506,4 +508,46 @@ public class GameActivity extends AppCompatActivity {
             return R.id.card18;
         }
     }
+    /*
+    public void setImage(View v){
+        if(v.getId() == R.id.card1){
+
+        }else if(v.getId() == R.id.card2){
+            cardNum = 1;
+        }else if(v.getId() == R.id.card3){
+            cardNum = 2;
+        }else if(v.getId() == R.id.card4){
+            cardNum = 3;
+        }else if(v.getId() == R.id.card5){
+            cardNum = 4;
+        }else if(v.getId() == R.id.card6){
+            cardNum = 5;
+        }else if(v.getId() == R.id.card7){
+            cardNum = 6;
+        }else if(v.getId() == R.id.card8){
+            cardNum = 7;
+        }else if(v.getId() == R.id.card9){
+            cardNum = 8;
+        }else if(v.getId() == R.id.card10){
+            cardNum = 9;
+        }else if(v.getId() == R.id.card11){
+            cardNum = 10;
+        }else if(v.getId() == R.id.card12){
+            cardNum = 11;
+        }else if(v.getId() == R.id.card13){
+            cardNum = 12;
+        }else if(v.getId() == R.id.card14){
+            cardNum = 13;
+        }else if(v.getId() == R.id.card15){
+            cardNum = 14;
+        }else if(v.getId() == R.id.card16){
+            cardNum = 15;
+        }else if(v.getId() == R.id.card17){
+            cardNum = 16;
+        }else{
+            cardNum = 17;
+        }
+    }
+
+     */
 }
