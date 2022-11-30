@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="cardImage1" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage2" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage3" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage4" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage5" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage6" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage7" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage8" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage9" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage10" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage11" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage12" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage13" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage14" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage15" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage16" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage17" type="drawable">@drawable/pixel_card_back</item>
+    <item name="cardImage18" type="drawable">@drawable/pixel_card_back</item>
+
+
+
+</resources>

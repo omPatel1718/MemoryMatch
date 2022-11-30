@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage1" />
 
     <ImageButton
         android:id="@+id/card2"
@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.053"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage2" />
 
     <ImageButton
         android:id="@+id/card3"
@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage3" />
 
     <ImageButton
         android:id="@+id/card4"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage4" />
 
     <ImageButton
         android:id="@+id/card5"
@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage5" />
 
     <ImageButton
         android:id="@+id/card6"
@@ -84,7 +84,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage6" />
 
     <ImageButton
         android:id="@+id/card7"
@@ -97,7 +97,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage7" />
 
     <ImageButton
         android:id="@+id/card8"
@@ -110,7 +110,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage8" />
 
     <ImageButton
         android:id="@+id/card9"
@@ -123,7 +123,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage9" />
 
     <ImageButton
         android:id="@+id/card10"
@@ -136,7 +136,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage10" />
 
     <ImageButton
         android:id="@+id/card11"
@@ -149,7 +149,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage11" />
 
     <ImageButton
         android:id="@+id/card12"
@@ -162,7 +162,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage12" />
 
     <ImageButton
         android:id="@+id/card13"
@@ -175,7 +175,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage13" />
 
     <ImageButton
         android:id="@+id/card14"
@@ -188,7 +188,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage14" />
 
     <ImageButton
         android:id="@+id/card15"
@@ -201,7 +201,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage15" />
 
 
     <ImageButton
@@ -215,7 +215,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage16" />
 
     <ImageButton
         android:id="@+id/card17"
@@ -228,7 +228,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage17" />
 
     <ImageButton
         android:id="@+id/card18"
@@ -241,7 +241,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:srcCompat="@drawable/cardImage18" />
 
     <Button
         android:id="@+id/pauseButton"

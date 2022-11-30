@@ -321,6 +321,7 @@ public class GameActivity extends AppCompatActivity {
         if(!select.isFlipped() && !paused){
             select.setFlipped(true);
             v.setBackgroundResource(select.getImage());
+            v.invalidate();
             //loops through deck and for each card:
             for(int i=0; i<18; i++){
                 //checks if it is also flipped and not the same card >:(
