@@ -48,7 +48,8 @@ public class GameActivity extends AppCompatActivity {
             }else if(add.getTime()>0){
                 temp[i+1] = new Card(add.getTime(),"time", tempImage);
             }
-            add.setImage(whichImage(i));
+            temp[i].setImage(whichImage(i));
+            temp[i+1].setImage(whichImage(i));
         }
 
         //randomizes deck order
