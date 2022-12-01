@@ -348,7 +348,7 @@ public class GameActivity extends AppCompatActivity {
                     }else{
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
-                        TimeUnit.SECONDS.sleep(1);
+
                         ImageButton btn2 = (ImageButton)findViewById(getButtonFromCard(i));
                         btn1.setImageResource(R.drawable.pixel_card_back);
                         btn2.setImageResource(R.drawable.pixel_card_back);
