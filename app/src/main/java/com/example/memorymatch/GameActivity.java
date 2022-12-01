@@ -450,7 +450,7 @@ public class GameActivity extends AppCompatActivity {
         disCard(findViewById(getButtonFromCard(cardNum)));
     }
 
-    /*
+
     public void flipAll(int sec){
         paused = true;
         for(int i=0; i<deckSize; i++){
@@ -470,7 +470,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }.start();
     }
-     */
+
 
     public int getButtonFromCard(int cardNum){
         if(cardNum==0){
@@ -511,6 +511,7 @@ public class GameActivity extends AppCompatActivity {
             return R.id.card18;
         }
     }
+
     /*
     public void setImage(View v){
         if(v.getId() == R.id.card1){
@@ -551,6 +552,5 @@ public class GameActivity extends AppCompatActivity {
             cardNum = 17;
         }
     }
-
-     */
+    */
 }
