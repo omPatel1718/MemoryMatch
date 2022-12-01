@@ -347,8 +347,8 @@ public class GameActivity extends AppCompatActivity {
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
                         ImageButton btn2 = (ImageButton)findViewById(getButtonFromCard(i));
-                        btn1.setImageResource(R.drawable.card_blue_back_normal);
-                        btn2.setImageResource(R.drawable.card_blue_back_normal);
+                        btn1.setImageResource(R.drawable.pixel_card_back);
+                        btn2.setImageResource(R.drawable.pixel_card_back);
                         if(gameMode.equals("Mastery")){
                             lives--;
                             String text = "Score:" + score + "\nTimer: " + time + "\nLives: " + lives;
