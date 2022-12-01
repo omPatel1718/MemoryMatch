@@ -346,7 +346,7 @@ public class GameActivity extends AppCompatActivity {
                     }else{
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
-
+                        stall();
                         ImageButton btn2 = (ImageButton)findViewById(getButtonFromCard(i));
                         btn1.setImageResource(R.drawable.pixel_card_back);
                         btn2.setImageResource(R.drawable.pixel_card_back);
@@ -456,14 +456,12 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void flipAll(int sec){
-        paused = true;
-        for(int i=0; i<deckSize; i++){
-            deck[i].setFlipped(true);
-        }
-
         new CountDownTimer((long) sec, 1000) {
             public void onTick(long millisUntilFinished) {
-
+                paused = true;
+                for(int i=0; i<deckSize; i++){
+                    deck[i].setFlipped(true);
+                }
             }
 
             public void onFinish() {
