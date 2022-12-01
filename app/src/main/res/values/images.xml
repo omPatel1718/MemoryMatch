@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <item name="cardImage1" type="drawable">@drawable/pixel_card_back</item>
     <item name="cardImage2" type="drawable">@drawable/pixel_card_back</item>
     <item name="cardImage3" type="drawable">@drawable/pixel_card_back</item>
@@ -19,7 +18,6 @@
     <item name="cardImage16" type="drawable">@drawable/pixel_card_back</item>
     <item name="cardImage17" type="drawable">@drawable/pixel_card_back</item>
     <item name="cardImage18" type="drawable">@drawable/pixel_card_back</item>
-
 
 
 </resources>
