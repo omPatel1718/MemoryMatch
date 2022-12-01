@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.concurrent.TimeUnit;
+
 public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
@@ -275,7 +277,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     //checks what card was clicked, if they match, and changes variables, positions, animations, etc. accordingly
-    public void cardClicked(View v){
+    public void cardClicked(View v) throws InterruptedException {
         int cardNum=0;
 
         if(v.getId() == R.id.card1){
@@ -346,7 +348,7 @@ public class GameActivity extends AppCompatActivity {
                     }else{
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
-                        stall();
+                        TimeUnit.SECONDS.sleep(1);
                         ImageButton btn2 = (ImageButton)findViewById(getButtonFromCard(i));
                         btn1.setImageResource(R.drawable.pixel_card_back);
                         btn2.setImageResource(R.drawable.pixel_card_back);
@@ -469,18 +471,6 @@ public class GameActivity extends AppCompatActivity {
                 for(int i=0; i<deckSize; i++){
                     deck[i].setFlipped(false);
                 }
-            }
-        }.start();
-    }
-
-    public void stall(){
-        new CountDownTimer((long) 2000, 1000) {
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            public void onFinish() {
-
             }
         }.start();
     }
