@@ -463,6 +463,8 @@ public class GameActivity extends AppCompatActivity {
                 paused = true;
                 for(int i=0; i<deckSize; i++){
                     deck[i].setFlipped(true);
+                    ImageButton btn1 = (ImageButton)findViewById(getButtonFromCard(i));
+                    btn1.setImageResource(deck[i].getImage());
                 }
             }
 
@@ -470,6 +472,8 @@ public class GameActivity extends AppCompatActivity {
                 paused = false;
                 for(int i=0; i<deckSize; i++){
                     deck[i].setFlipped(false);
+                    ImageButton btn1 = (ImageButton)findViewById(getButtonFromCard(i));
+                    btn1.setImageResource(R.drawable.pixel_card_back);
                 }
             }
         }.start();
