@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
@@ -321,8 +322,8 @@ public class GameActivity extends AppCompatActivity {
         //checks if the card is already flipped and if in freeze state
         if(!select.isFlipped() && !paused){
             select.setFlipped(true);
-            v.setBackgroundResource(select.getImage());
-            v.invalidate();
+            ImageButton btn = (ImageButton)findViewById(v.getId());
+            btn.setImageResource(select.getImage());
             //loops through deck and for each card:
             for(int i=0; i<18; i++){
                 //checks if it is also flipped and not the same card >:(
