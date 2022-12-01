@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameOverActivity">
+    tools:context=".GameOverActivity"
+    android:background="@drawable/wood_floor_sideways">
 
     <Button
         android:id="@+id/menuButton"
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content"
         android:text="Score: "
         android:textSize="@dimen/normalText"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
@@ -56,6 +58,7 @@
         android:layout_marginTop="76dp"
         android:text="Game Mode:"
         android:textSize="@dimen/normalText"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
