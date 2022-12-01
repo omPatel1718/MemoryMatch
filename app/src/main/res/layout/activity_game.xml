@@ -256,9 +256,6 @@
         app:layout_constraintVertical_bias="0.047" />
 
 
-
-
-
     <ImageView
         android:id="@+id/deck"
         android:layout_width="78dp"
@@ -268,7 +265,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.518"
-        app:srcCompat="@drawable/card_blue_back_normal" />
+        app:srcCompat="@drawable/pixel_card_back" />
 
     <ImageView
         android:id="@+id/discard"
@@ -279,7 +276,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.943"
-        app:srcCompat="@drawable/card_blue_back_normal" />
+        app:srcCompat="@drawable/pixel_card_back" />
 
     <TextView
         android:id="@+id/display"
