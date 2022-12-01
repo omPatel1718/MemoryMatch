@@ -175,8 +175,7 @@ public class GameActivity extends AppCompatActivity {
             public void onFinish() {
                 if(startTime>0){
                     timer();
-                }
-                if(!paused){
+                }else if(!paused){
                     gameOver();
                 }
                 paused = true;
@@ -322,8 +321,8 @@ public class GameActivity extends AppCompatActivity {
         //checks if the card is already flipped and if in freeze state
         if(!select.isFlipped() && !paused){
             select.setFlipped(true);
-            ImageButton btn = (ImageButton)findViewById(v.getId());
-            btn.setImageResource(select.getImage());
+            ImageButton btn1 = (ImageButton)findViewById(v.getId());
+            btn1.setImageResource(select.getImage());
             //loops through deck and for each card:
             for(int i=0; i<18; i++){
                 //checks if it is also flipped and not the same card >:(
@@ -347,6 +346,9 @@ public class GameActivity extends AppCompatActivity {
                     }else{
                         deck[i].setFlipped(false);
                         select.setFlipped(false);
+                        ImageButton btn2 = (ImageButton)findViewById(getButtonFromCard(i));
+                        btn1.setImageResource(R.drawable.card_blue_back_normal);
+                        btn2.setImageResource(R.drawable.card_blue_back_normal);
                         if(gameMode.equals("Mastery")){
                             lives--;
                             String text = "Score:" + score + "\nTimer: " + time + "\nLives: " + lives;
