@@ -25,7 +25,7 @@ public class GameOverActivity extends AppCompatActivity {
         TextView scoreText = findViewById(R.id.score);
         scoreText.setText("Score: " + score + " points");
         TextView modeText = findViewById(R.id.gameMode);
-        modeText.setText("GameMode: " + gameMode);
+        modeText.setText("GameMode: " + gameMode + "\nDifficulty: " + difficulty);
     }
 
     public void quitToTitle(View view) {
