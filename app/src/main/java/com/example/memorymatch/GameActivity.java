@@ -472,7 +472,7 @@ public class GameActivity extends AppCompatActivity {
         disCard(findViewById(getButtonFromCard(cardNum)));
     }
 
-
+    //turns all the cards up right for a set duration
     public void flipAll(int sec){
         new CountDownTimer((long) sec, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -494,7 +494,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }.start();
     }
-
+    //finds the current card
     public int getButtonFromCard(int cardNum){
         if(cardNum==0){
             return R.id.card1;
