@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class GameOverActivity extends AppCompatActivity {
 
-    String gameMode;
+    String gameMode, difficulty;
     int score;
 
     @Override
@@ -19,6 +19,7 @@ public class GameOverActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         gameMode = intent.getStringExtra("MODE");
+        difficulty = intent.getStringExtra("DIFFICULT");
         score = intent.getIntExtra("SCORE", 0);
 
         TextView scoreText = findViewById(R.id.score);
@@ -34,6 +35,8 @@ public class GameOverActivity extends AppCompatActivity {
 
     public void playAgain(View view){
         Intent intent = new Intent(GameOverActivity.this, GameActivity.class);
+        intent.putExtra("GAMEMODE", gameMode);
+        intent.putExtra("DIFFICULTY", difficulty);
         startActivity(intent);
     }
 }

@@ -341,7 +341,7 @@ public class GameActivity extends AppCompatActivity {
                                 temp = true;
                             }
                         }
-                        if(temp){
+                        if(!temp){
                             shuffle();
                         }
                     //if they don't match, unflip them and decrease lives if needed
@@ -436,6 +436,7 @@ public class GameActivity extends AppCompatActivity {
     public void gameOver() {
         Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
         intent.putExtra("MODE", gameMode);
+        intent.putExtra("DIFFICULT",difficulty);
         intent.putExtra("SCORE",score);
         startActivity(intent);
     }
