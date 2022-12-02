@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    tools:context=".MenuActivity"
+    android:background="@drawable/wood_floor_sideways">
 
     <TextView
         android:id="@+id/paused"
@@ -13,6 +14,7 @@
         android:layout_marginTop="80dp"
         android:text="Paused"
         android:textSize="@dimen/bigText"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +27,7 @@
         android:layout_marginTop="172dp"
         android:text="Game Mode: "
         android:textSize="@dimen/normalText"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
