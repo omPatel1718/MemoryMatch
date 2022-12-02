@@ -394,6 +394,18 @@ public class GameActivity extends AppCompatActivity {
             temp[i].setImage(whichImage(i));
             temp[i+1].setImage(whichImage(i));
         }
+
+        //dealCards();
+
+        if(difficulty.equals("Easy")){
+            flipAll(10000);
+        }else if(difficulty.equals("Medium")){
+            flipAll(5000);
+        }else if(difficulty.equals("Hard")){
+            flipAll(3000);
+        }else{
+            flipAll(2000);
+        }
     }
 
     //helper method that updates variables if cards match
