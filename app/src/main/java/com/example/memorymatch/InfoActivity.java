@@ -2,6 +2,7 @@ package com.example.memorymatch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +28,7 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public void pageRight(View v){
-        if(page<5){
+        if(page<6){
             page++;
         }
         pageCheck();
@@ -40,6 +41,7 @@ public class InfoActivity extends AppCompatActivity {
         pageCheck();
     }
 
+    @SuppressLint("SetTextI18n")
     public void pageCheck(){
         pageNum.setText(""+page);
         if(page==1){
@@ -53,10 +55,10 @@ public class InfoActivity extends AppCompatActivity {
         }else if(page==4){
             infoText.setText("Blitz: GO GO GO\nIn this fast paced game mode, you start with less time and time increases are lower, but time cards are more common." +
                     "\nStay focused under pressure and do your best.\nCards give points or more time.");
-        }else if(page==4){
+        }else if(page==5){
             infoText.setText("Mastery: The Ultimate Challenge\nIn the final test of skill, you have both a ticking timer, but also lives." +
                     "\nEach time you make a wrong match you lose a life.\nCards give points, more lives, and more time.\nGood Luck.");
-        }else if(page==5){
+        }else if(page==6){
             infoText.setText("What does difficulty do?:\nIt changes starting lives, turns, and time. " +
                     "\nIt also shortens the time the cards are revealed to you at the beginning");
         }
