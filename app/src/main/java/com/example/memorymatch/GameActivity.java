@@ -190,7 +190,7 @@ public class GameActivity extends AppCompatActivity {
          check for gamemode, randomize card type
 
          classic - 75% points 25% time
-         zen - 60% points 40% turns (odds of a turn increase less than classic's time)
+         zen - 80% points 20% turns (odds of a turn increase less than classic's time)
          blitz - 60% points 40% time (odds of a time increase more than classic's time)
          mastery - 80% points 15% time 5% lives (this is hard mode, time and lives should be lower odds)
         */
@@ -206,7 +206,7 @@ public class GameActivity extends AppCompatActivity {
                 type = "time";
             }
         }else if(gameMode.equals("Zen")){
-            if(rand<61){
+            if(rand<81){
                 type = "points";
             }else{
                 type = "turns";
@@ -406,6 +406,9 @@ public class GameActivity extends AppCompatActivity {
         two.setFlipped(false);
         one.setMatched(true);
         two.setMatched(true);
+        if(gameMode.equals("Zen")){
+            turns++;
+        }
     }
 
     //calls menu activity and pauses game
