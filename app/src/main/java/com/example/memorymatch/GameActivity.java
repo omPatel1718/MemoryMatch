@@ -27,12 +27,13 @@ public class GameActivity extends AppCompatActivity {
     Card[] deck = new Card[deckSize];
     CountDownTimer clock;
 
+    int[][] ogCoordinates;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         scoreText = findViewById(R.id.display);
-
+        ogCoordinates = new int[18][2];
         //initializes deck (but each pair is consecutive
         Intent intent = getIntent();
         gameMode = intent.getStringExtra("GAMEMODE");
@@ -62,7 +63,12 @@ public class GameActivity extends AppCompatActivity {
                 rand = (int)(Math.random()*deckSize);
             }
             deck[rand] = temp[i];
+            Point cardLocation = getLocationOnScreen(rand);
+            ogCoordinates[rand][0] = cardLocation.x;
+            ogCoordinates[rand][1] = cardLocation.y;
         }
+
+
 
         //if blitz, classic, or mastery, set up timer
         if(gameMode.equals("Classic")){
@@ -449,6 +455,10 @@ public class GameActivity extends AppCompatActivity {
         return new Point(location[0], location[1]);
     }
 
+    public Point getLocationOnScreen(int cardNum){
+        return getLocationOnScreen(findViewById(getButtonFromCard(cardNum)));
+    }
+
     //actual discard animation
     public void disCard(View view){
         Point cardCoordinates = getLocationOnScreen(view);
@@ -533,6 +543,20 @@ public class GameActivity extends AppCompatActivity {
             return R.id.card17;
         }else{
             return R.id.card18;
+        }
+    }
+
+    public void dealCards(){
+        for (int i = 0; i < ogCoordinates.length; i++){
+            int setCoordinateX = ogCoordinates[i][0];
+            int setCoordinateY = ogCoordinates[i][1];
+            Point deckCoordinates = getLocationOnScreen(findViewById(R.id.deck));
+            int deckX = deckCoordinates.x;
+            int deckY = deckCoordinates.y;
+            float floatX = deckX - setCoordinateX;
+            float floatY = deckY - setCoordinateY;
+            View cardView = getViewById(getButtonFromCard(i));
+            ObjectAnimator x = ObjectAnimator.ofFloat(deck[i], "translationX", floatX);
         }
     }
 }
