@@ -429,14 +429,15 @@ public class GameActivity extends AppCompatActivity {
         clock.cancel();
         Intent intent = new Intent(GameActivity.this, MenuActivity.class);
         intent.putExtra("GAMEMODE", gameMode);
+        intent.putExtra("DIFFICULTY",difficulty);
         startActivity(intent);
     }
 
     //calls gameOver screen and ends game
     public void gameOver() {
         Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
-        intent.putExtra("MODE", gameMode);
-        intent.putExtra("DIFFICULT",difficulty);
+        intent.putExtra("GAMEMODE", gameMode);
+        intent.putExtra("DIFFICULTY",difficulty);
         intent.putExtra("SCORE",score);
         startActivity(intent);
     }

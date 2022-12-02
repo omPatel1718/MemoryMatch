@@ -9,16 +9,17 @@ import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
 
-    String gm;
+    String gameMode, difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        gm = getIntent().getStringExtra("GAMEMODE");
+        gameMode = getIntent().getStringExtra("GAMEMODE");
+        difficulty = getIntent().getStringExtra("DIFFICULTY");
 
         TextView modeText = findViewById(R.id.gameMode);
-        modeText.setText("Game Mode: " + gm);
+        modeText.setText("Game Mode: " + gameMode + "\nDifficulty: " + difficulty);
     }
 
     public void backToGame(View view) {

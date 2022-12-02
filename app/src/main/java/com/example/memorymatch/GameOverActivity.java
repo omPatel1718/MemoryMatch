@@ -18,14 +18,14 @@ public class GameOverActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_over);
 
         Intent intent = getIntent();
-        gameMode = intent.getStringExtra("MODE");
-        difficulty = intent.getStringExtra("DIFFICULT");
+        gameMode = intent.getStringExtra("GAMEMODE");
+        difficulty = intent.getStringExtra("DIFFICULTY");
         score = intent.getIntExtra("SCORE", 0);
 
         TextView scoreText = findViewById(R.id.score);
         scoreText.setText("Score: " + score + " points");
         TextView modeText = findViewById(R.id.gameMode);
-        modeText.setText("GameMode: " + gameMode + "\nDifficulty: " + difficulty);
+        modeText.setText("Game Mode: " + gameMode + "\nDifficulty: " + difficulty);
     }
 
     public void quitToTitle(View view) {
