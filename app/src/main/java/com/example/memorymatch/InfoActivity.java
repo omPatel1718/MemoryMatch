@@ -24,7 +24,7 @@ public class InfoActivity extends AppCompatActivity {
         origin = intent.getStringExtra("PREVSCREEN");
 
         infoText = findViewById(R.id.instructions);
-        pageNum = findViewById(R.id.pageNumber);
+        pageNum = findViewById(R.id.pageNumber1);
     }
 
     public void pageRight(View v){
