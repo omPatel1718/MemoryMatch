@@ -572,10 +572,10 @@ public class GameActivity extends AppCompatActivity {
             float floatX = deckX - setCoordinateX;
             float floatY = deckY - setCoordinateY;
             ObjectAnimator x = ObjectAnimator.ofFloat(findViewById(getButtonFromCard(i)), "translationX", floatX);
-            x.setDuration(5);
+            x.setDuration(500);
             x.start();
             ObjectAnimator y = ObjectAnimator.ofFloat(findViewById(getButtonFromCard(i)), "translationY", 0f, floatY);
-            y.setDuration(5);
+            y.setDuration(500);
             y.start();
         }
     }
