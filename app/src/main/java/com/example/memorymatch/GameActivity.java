@@ -53,10 +53,6 @@ public class GameActivity extends AppCompatActivity {
             }
             temp[i].setImage(whichImage(i));
             temp[i+1].setImage(whichImage(i));
-
-            Point cardLocation = getLocationOnScreen(i);
-            ogCoordinates[i][0] = cardLocation.x;
-            ogCoordinates[i][1] = cardLocation.y;
         }
 
         //randomizes deck order
@@ -284,6 +280,13 @@ public class GameActivity extends AppCompatActivity {
 
     //checks what card was clicked, if they match, and changes variables, positions, animations, etc. accordingly
     public void cardClicked(View v) throws InterruptedException {
+        for(int i=0; i<deckSize; i++){
+            Point cardLocation = getLocationOnScreen(i);
+            ogCoordinates[i][0] = cardLocation.x;
+            ogCoordinates[i][1] = cardLocation.y;
+            Log.e("AAAA", "" + ogCoordinates[i][0]);
+        }
+
         int cardNum=0;
 
         if(v.getId() == R.id.card1){
@@ -562,7 +565,7 @@ public class GameActivity extends AppCompatActivity {
         for (int i = 0; i < ogCoordinates.length; i++){
             int setCoordinateX = ogCoordinates[i][0];
             int setCoordinateY = ogCoordinates[i][1];
-            int deckX = deckPile.x - 100;
+            int deckX = deckPile.x;
             int deckY = deckPile.y;
             float floatX = deckX - setCoordinateX;
             float floatY = deckY - setCoordinateY;
