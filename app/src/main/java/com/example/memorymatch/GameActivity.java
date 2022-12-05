@@ -360,7 +360,7 @@ public class GameActivity extends AppCompatActivity {
 
                         ImageButton btn2 = (ImageButton)findViewById(getButtonFromCard(i));
                         setDelay(btn1, btn2);
-                        
+
                         if(gameMode.equals("Mastery")){
                             lives--;
                             String text = "Score:" + score + "\nTimer: " + time + "\nLives: " + lives;
@@ -386,7 +386,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void setDelay(ImageButton a, ImageButton b){
-        new CountDownTimer((long) 2000, 1000) {
+        new CountDownTimer((long) 500, 1000) {
             public void onTick(long millisUntilFinished) {
 
             }
