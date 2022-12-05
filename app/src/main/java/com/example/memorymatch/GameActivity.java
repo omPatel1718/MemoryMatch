@@ -554,7 +554,7 @@ public class GameActivity extends AppCompatActivity {
     public void dealCards(){
         Point deckPile = getLocationOnScreen(findViewById(R.id.deck));
         Point disCardPile = getLocationOnScreen(findViewById(R.id.discard));
-        for (int i = 0; i < deckSize; i++){
+        for (int i = 0; i < ogCoordinates.length; i++){
             int deckY = deckPile.y;
             int disCardY = disCardPile.y;
             float floatY = disCardY - deckY;
