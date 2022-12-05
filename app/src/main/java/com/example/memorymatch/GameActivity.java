@@ -547,9 +547,9 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void dealCards(){
+        Point deckPile = getLocationOnScreen(findViewById(R.id.deck));
+        Point disCardPile = getLocationOnScreen(findViewById(R.id.discard));
         for (int i = 0; i < deckSize; i++){
-            Point deckPile = getLocationOnScreen(findViewById(R.id.deck));
-            Point disCardPile = getLocationOnScreen(findViewById(R.id.discard));
             int deckY = deckPile.y;
             int disCardY = disCardPile.y;
             float floatY = disCardY - deckY;
@@ -560,9 +560,8 @@ public class GameActivity extends AppCompatActivity {
         for (int i = 0; i < ogCoordinates.length; i++){
             int setCoordinateX = ogCoordinates[i][0];
             int setCoordinateY = ogCoordinates[i][1];
-            Point deckCoordinates = getLocationOnScreen(findViewById(R.id.deck));
-            int deckX = deckCoordinates.x - 100;
-            int deckY = deckCoordinates.y;
+            int deckX = deckPile.x - 100;
+            int deckY = deckPile.y;
             float floatX = deckX - setCoordinateX;
             float floatY = deckY - setCoordinateY;
             ObjectAnimator x = ObjectAnimator.ofFloat(findViewById(getButtonFromCard(i)), "translationX", floatX);
