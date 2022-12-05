@@ -400,7 +400,7 @@ public class GameActivity extends AppCompatActivity {
             temp[i+1].setImage(whichImage(i));
         }
 
-        //dealCards();
+        dealCards();
 
         if(difficulty.equals("Easy")){
             flipAll(10000);
