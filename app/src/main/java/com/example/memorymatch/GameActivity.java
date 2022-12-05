@@ -53,6 +53,10 @@ public class GameActivity extends AppCompatActivity {
             }
             temp[i].setImage(whichImage(i));
             temp[i+1].setImage(whichImage(i));
+
+            Point cardLocation = getLocationOnScreen(i);
+            ogCoordinates[i][0] = cardLocation.x;
+            ogCoordinates[i][1] = cardLocation.y;
         }
 
         //randomizes deck order
@@ -62,9 +66,6 @@ public class GameActivity extends AppCompatActivity {
                 rand = (int)(Math.random()*deckSize);
             }
             deck[rand] = temp[i];
-            Point cardLocation = getLocationOnScreen(rand);
-            ogCoordinates[rand][0] = cardLocation.x;
-            ogCoordinates[rand][1] = cardLocation.y;
         }
 
 
@@ -560,7 +561,7 @@ public class GameActivity extends AppCompatActivity {
             int setCoordinateX = ogCoordinates[i][0];
             int setCoordinateY = ogCoordinates[i][1];
             Point deckCoordinates = getLocationOnScreen(findViewById(R.id.deck));
-            int deckX = deckCoordinates.x;
+            int deckX = deckCoordinates.x - 100;
             int deckY = deckCoordinates.y;
             float floatX = deckX - setCoordinateX;
             float floatY = deckY - setCoordinateY;
