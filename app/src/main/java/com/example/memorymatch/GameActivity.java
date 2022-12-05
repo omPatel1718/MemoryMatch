@@ -459,29 +459,6 @@ public class GameActivity extends AppCompatActivity {
         return getLocationOnScreen(findViewById(getButtonFromCard(cardNum)));
     }
 
-    //actual discard animation
-    public void disCard(View view){
-        Point cardCoordinates = getLocationOnScreen(view);
-        int cardX = cardCoordinates.x;
-        int cardY = cardCoordinates.y;
-        View discardPile = findViewById(R.id.discard);
-        Point targetCoordinates = getLocationOnScreen(discardPile);
-        int targetX = targetCoordinates.x;
-        int targetY = targetCoordinates.y;
-        float floatX = targetX - cardX;
-        ObjectAnimator moveX = ObjectAnimator.ofFloat(view, "translationX", 0f, floatX);
-        moveX.setDuration(5);
-        moveX.start();
-        float floatY = targetY - cardY;
-        ObjectAnimator moveY = ObjectAnimator.ofFloat(view, "translationY", 0f, floatY);
-        moveY.setDuration(5);
-        moveY.start();
-    }
-
-    //turns an int into a card id and then calls disCard
-    public void disCard(int cardNum){
-        disCard(findViewById(getButtonFromCard(cardNum)));
-    }
 
     //turns all the cards up right for a set duration
     public void flipAll(int sec){
@@ -546,6 +523,31 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    //actual discard animation
+    public void disCard(View view){
+        Point cardCoordinates = getLocationOnScreen(view);
+        int cardX = cardCoordinates.x;
+        int cardY = cardCoordinates.y;
+        View discardPile = findViewById(R.id.discard);
+        Point targetCoordinates = getLocationOnScreen(discardPile);
+        int targetX = targetCoordinates.x;
+        int targetY = targetCoordinates.y;
+        float floatX = targetX - cardX;
+        ObjectAnimator moveX = ObjectAnimator.ofFloat(view, "translationX", 0f, floatX);
+        moveX.setDuration(5);
+        moveX.start();
+        float floatY = targetY - cardY;
+        ObjectAnimator moveY = ObjectAnimator.ofFloat(view, "translationY", 0f, floatY);
+        moveY.setDuration(5);
+        moveY.start();
+    }
+
+    //turns an int into a card id and then calls disCard
+    public void disCard(int cardNum){
+        disCard(findViewById(getButtonFromCard(cardNum)));
+    }
+
+    //helper method to redeal the cards
     public void dealCards(){
         Point deckPile = getLocationOnScreen(findViewById(R.id.deck));
         Point disCardPile = getLocationOnScreen(findViewById(R.id.discard));
