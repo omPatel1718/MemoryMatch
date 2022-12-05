@@ -11,8 +11,8 @@ import android.widget.TextView;
 public class InfoActivity extends AppCompatActivity {
 
     String origin = "";
-    int page = 1;
-    TextView infoText, pageNum;
+    int leftPage = 1;
+    TextView infoText1, infoText2, pageNum1, pageNum2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,43 +23,43 @@ public class InfoActivity extends AppCompatActivity {
         //extract String data USERNAME
         origin = intent.getStringExtra("PREVSCREEN");
 
-        infoText = findViewById(R.id.instructions);
-        pageNum = findViewById(R.id.pageNumber1);
+        infoText1 = findViewById(R.id.instructions1);
+        infoText2 = findViewById(R.id.instructions2);
+        pageNum1 = findViewById(R.id.pageNumber1);
+        pageNum2 = findViewById(R.id.pageNumber2);
     }
 
     public void pageRight(View v){
-        if(page<6){
-            page++;
+        if(leftPage<5){
+            leftPage+=2;
         }
         pageCheck();
     }
 
     public void pageLeft(View v){
-        if(page>1){
-            page--;
+        if(leftPage>1){
+            leftPage-=2;
         }
         pageCheck();
     }
 
     @SuppressLint("SetTextI18n")
     public void pageCheck(){
-        pageNum.setText(""+page);
-        if(page==1){
-            infoText.setText("Welcome to Memory Match!\nThis game is designed to test your memory.\nWhen you start the game, you'll get 18 cards to match" +
+        pageNum1.setText(""+leftPage);
+        pageNum2.setText(""+(leftPage+1));
+        if(leftPage==1){
+            infoText1.setText("Welcome to Memory Match!\nThis game is designed to test your memory.\nWhen you start the game, you'll get 18 cards to match" +
                     " and matching a pair will net you rewards!");
-        }else if(page==2){
-            infoText.setText("Classic: A Good Beginning\nCards get you points or more time.\nTry to make as many matches as you can with the time you've got!");
-        }else if(page==3){
-            infoText.setText("Zen: Strategy is Key\nInstead of a timer, you have turns.\nEach time you flip 2 cards, you lose a turn whether or not you make a match." +
+            infoText2.setText("Classic: A Good Beginning\nCards get you points or more time.\nTry to make as many matches as you can with the time you've got!");
+        }else if(leftPage==3){
+            infoText1.setText("Zen: Strategy is Key\nInstead of a timer, you have turns.\nEach time you flip 2 cards, you lose a turn whether or not you make a match." +
                     "\nTake as much time as you need to get a good score!\nCards get you points or more turns.");
-        }else if(page==4){
-            infoText.setText("Blitz: GO GO GO\nIn this fast paced game mode, you start with less time and time increases are lower, but time cards are more common." +
+            infoText2.setText("Blitz: GO GO GO\nIn this fast paced game mode, you start with less time and time increases are lower, but time cards are more common." +
                     "\nStay focused under pressure and do your best.\nCards give points or more time.");
-        }else if(page==5){
-            infoText.setText("Mastery: The Ultimate Challenge\nIn the final test of skill, you have both a ticking timer, but also lives." +
+        }else if(leftPage==5){
+            infoText1.setText("Mastery: The Ultimate Challenge\nIn the final test of skill, you have both a ticking timer, but also lives." +
                     "\nEach time you make a wrong match you lose a life.\nCards give points, more lives, and more time.\nGood Luck.");
-        }else if(page==6){
-            infoText.setText("What does difficulty do?:\nIt changes starting lives, turns, and time. " +
+            infoText2.setText("What does difficulty do?:\nIt changes starting lives, turns, and time. " +
                     "\nIt also shortens the time the cards are revealed to you at the beginning");
         }
     }

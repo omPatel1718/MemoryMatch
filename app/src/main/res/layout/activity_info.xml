@@ -8,7 +8,7 @@
     tools:context=".InfoActivity">
 
     <TextView
-        android:id="@+id/instructions"
+        android:id="@+id/instructions1"
         android:layout_width="282dp"
         android:layout_height="316dp"
 
