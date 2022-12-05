@@ -355,8 +355,7 @@ public class GameActivity extends AppCompatActivity {
                         }
                     //if they don't match, unflip them and decrease lives if needed
                     }else{
-                        deck[i].setFlipped(false);
-                        select.setFlipped(false);
+                        setDelay(deck[i], select);
 
                         ImageButton btn2 = (ImageButton)findViewById(getButtonFromCard(i));
                         btn1.setImageResource(R.drawable.pixel_card_back);
@@ -383,6 +382,19 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void setDelay(Card a, Card b){
+        new CountDownTimer((long) 2000, 1000) {
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                a.setFlipped(false);
+                b.setFlipped(false);
+            }
+        }.start();
     }
 
     //redeals 18 new cards
