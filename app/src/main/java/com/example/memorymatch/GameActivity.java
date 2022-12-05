@@ -163,17 +163,6 @@ public class GameActivity extends AppCompatActivity {
                     text +="\nLives: " + lives;
                 }
                 scoreText.setText(text);
-
-                //updates card faces
-                for(int i=0; i<deckSize; i++){
-                    if(deck[i].isFlipped()){
-                        //take this card int and do the flipped update code
-                        getButtonFromCard(i);
-                    }else{
-                        //take this card int and do the back side update code
-                        getButtonFromCard(i);
-                    }
-                }
             }
 
             public void onFinish() {
