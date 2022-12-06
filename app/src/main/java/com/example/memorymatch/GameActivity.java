@@ -433,14 +433,19 @@ public class GameActivity extends AppCompatActivity {
 
         dealCards();
 
-        if(difficulty.equals("Easy")){
-            flipAll(10000);
-        }else if(difficulty.equals("Medium")){
-            flipAll(5000);
-        }else if(difficulty.equals("Hard")){
-            flipAll(3000);
-        }else{
-            flipAll(2000);
+        switch (difficulty) {
+            case "Easy":
+                flipAll(10000);
+                break;
+            case "Medium":
+                flipAll(5000);
+                break;
+            case "Hard":
+                flipAll(3000);
+                break;
+            default:
+                flipAll(2000);
+                break;
         }
     }
 
@@ -456,7 +461,7 @@ public class GameActivity extends AppCompatActivity {
         two.setMatched(true);
         Context popUp = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
-        Toast.makeText(popUp, one.display(), duration).show();;
+        Toast.makeText(popUp, one.display(), duration).show();
         if(gameMode.equals("Zen")){
             turns++;
         }
@@ -577,8 +582,9 @@ public class GameActivity extends AppCompatActivity {
         moveY.start();
         boolean temp = false;
         for (Card c: deck) {
-            if(!c.isMatched()){
+            if (!c.isMatched()) {
                 temp = true;
+                break;
             }
         }
         if(!temp){
