@@ -26,7 +26,7 @@
         android:layout_height="316dp"
 
         android:layout_marginTop="20dp"
-        android:text="Welcome to Memory Match!\nThis game is designed to test your memory.\nWhen you start the game, you'll get 18 cards to match and matching a pair will net you rewards!"
+        android:text="Classic: A Good Beginning\nCards get you points or more time.\nTry to make as many matches as you can with the time you've got!"
         android:textSize="23dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.826"
@@ -44,7 +44,7 @@
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955" />
+        app:layout_constraintVertical_bias="0.933" />
 
     <Button
         android:id="@+id/left"
@@ -91,11 +91,11 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="32dp"
-        android:text="1"
+        android:text="2"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toEndOf="@+id/left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

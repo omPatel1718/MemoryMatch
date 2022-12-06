@@ -58,7 +58,7 @@ public class InfoActivity extends AppCompatActivity {
                     "\nStay focused under pressure and do your best.\nCards give points or more time.");
         }else if(leftPage==5){
             infoText1.setText("Mastery: The Ultimate Challenge\nIn the final test of skill, you have both a ticking timer, but also lives." +
-                    "\nEach time you make a wrong match you lose a life.\nCards give points, more lives, and more time.\nGood Luck.");
+                    "\nEach time you make a wrong match you lose a life. Cards give points, more lives, and more time.\nGood Luck.");
             infoText2.setText("What does difficulty do?:\nIt changes starting lives, turns, and time. " +
                     "\nIt also shortens the time the cards are revealed to you at the beginning");
         }
