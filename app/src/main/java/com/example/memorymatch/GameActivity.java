@@ -427,7 +427,9 @@ public class GameActivity extends AppCompatActivity {
     //calls menu activity and pauses game
     public void pause(View view) {
         paused = true;
-        clock.cancel();
+        if(!gameMode.equals("Zen")){
+            clock.cancel();
+        }
         Intent intent = new Intent(GameActivity.this, MenuActivity.class);
         intent.putExtra("GAMEMODE", gameMode);
         intent.putExtra("DIFFICULTY",difficulty);
