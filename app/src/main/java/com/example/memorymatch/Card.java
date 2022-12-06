@@ -93,6 +93,28 @@ public class Card {
         return "" + value + " " + type + " " + image;
     }
 
+    public String display(){
+        int value = 0;
+        String type = "";
+        if(points>value){
+            value = points;
+            type = "points";
+        }
+        if(time>value){
+            value = time/1000;
+            type = "seconds";
+        }
+        if(turns>value){
+            value = turns;
+            type = "turns";
+        }
+        if(lives>value) {
+            value = lives;
+            type = "lives";
+        }
+        return "You got " + value + " " + type;
+    }
+
     public int getPoints() {
         return points;
     }

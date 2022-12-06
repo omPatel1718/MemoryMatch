@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.concurrent.TimeUnit;
 
@@ -419,6 +420,9 @@ public class GameActivity extends AppCompatActivity {
         two.setFlipped(false);
         one.setMatched(true);
         two.setMatched(true);
+        Context popUp = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast.makeText(popUp, one.display(), duration).show();;
         if(gameMode.equals("Zen")){
             turns++;
         }
