@@ -88,13 +88,13 @@ public class GameActivity extends AppCompatActivity {
                 startTime = 30000;
             }
             if(difficulty.equals("Easy")){
-                startTime = 20;
+                lives = 20;
             }else if(difficulty.equals("Medium")){
-                startTime = 15;
+                lives = 15;
             }else if(difficulty.equals("Hard")){
-                startTime = 10;
+                lives = 10;
             }else{
-                startTime = 5;
+                lives = 5;
             }
         }else if(gameMode.equals("Blitz")){
             if(difficulty.equals("Easy")){
@@ -160,7 +160,7 @@ public class GameActivity extends AppCompatActivity {
                 time = startTime/1000;
                 String text = "Score: " + score + "\nTimer: " + time;
                 if(gameMode.equals("Mastery")){
-                    text +="\nLives: " + lives;
+                    text += "\nLives: " + lives;
                 }
                 scoreText.setText(text);
             }
@@ -332,16 +332,6 @@ public class GameActivity extends AppCompatActivity {
                         updateMatched(deck[i],select);
                         disCard(v);
                         disCard(i);
-
-                        boolean temp = false;
-                        for (Card c: deck) {
-                            if(!c.isMatched()){
-                                temp = true;
-                            }
-                        }
-                        if(!temp){
-                            shuffle();
-                        }
                     //if they don't match, unflip them and decrease lives if needed
                     }else{
                         deck[i].setFlipped(false);
@@ -545,6 +535,15 @@ public class GameActivity extends AppCompatActivity {
         ObjectAnimator moveY = ObjectAnimator.ofFloat(view, "translationY", 0f, floatY);
         moveY.setDuration(500);
         moveY.start();
+        boolean temp = false;
+        for (Card c: deck) {
+            if(!c.isMatched()){
+                temp = true;
+            }
+        }
+        if(!temp){
+            shuffle();
+        }
     }
 
     //turns an int into a card id and then calls disCard
