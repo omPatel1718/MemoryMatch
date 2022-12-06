@@ -539,11 +539,11 @@ public class GameActivity extends AppCompatActivity {
         int targetY = targetCoordinates.y;
         float floatX = targetX - cardX;
         ObjectAnimator moveX = ObjectAnimator.ofFloat(view, "translationX", 0f, floatX);
-        moveX.setDuration(5);
+        moveX.setDuration(500);
         moveX.start();
         float floatY = targetY - cardY;
         ObjectAnimator moveY = ObjectAnimator.ofFloat(view, "translationY", 0f, floatY);
-        moveY.setDuration(5);
+        moveY.setDuration(500);
         moveY.start();
     }
 
