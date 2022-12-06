@@ -14,8 +14,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.concurrent.TimeUnit;
-
 public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
@@ -40,7 +38,7 @@ public class GameActivity extends AppCompatActivity {
         difficulty = intent.getStringExtra("DIFFICULTY");
         Log.i("HELP", "this is the gameMode text: " + gameMode);
         for(int i=0; i<deckSize; i+=2){
-            Card add = makeCard(i);
+            Card add = makeCard();
             temp[i] = add;
             int tempImage = add.getImage();
             if(add.getPoints()>0){
@@ -68,65 +66,100 @@ public class GameActivity extends AppCompatActivity {
 
 
         //if blitz, classic, or mastery, set up timer
-        if(gameMode.equals("Classic")){
-            if(difficulty.equals("Easy")){
-                startTime = 60000;
-            }else if(difficulty.equals("Medium")){
-                startTime = 50000;
-            }else if(difficulty.equals("Hard")){
-                startTime = 40000;
-            }else{
-                startTime = 30000;
-            }
-        }else if(gameMode.equals("Mastery")){
-            if(difficulty.equals("Easy")){
-                startTime = 60000;
-            }else if(difficulty.equals("Medium")){
-                startTime = 50000;
-            }else if(difficulty.equals("Hard")){
-                startTime = 40000;
-            }else{
-                startTime = 30000;
-            }
-            if(difficulty.equals("Easy")){
-                lives = 20;
-            }else if(difficulty.equals("Medium")){
-                lives = 15;
-            }else if(difficulty.equals("Hard")){
-                lives = 10;
-            }else{
-                lives = 5;
-            }
-        }else if(gameMode.equals("Blitz")){
-            if(difficulty.equals("Easy")){
-                startTime = 30000;
-            }else if(difficulty.equals("Medium")){
-                startTime = 25000;
-            }else if(difficulty.equals("Hard")){
-                startTime = 20000;
-            }else{
-                startTime = 15000;
-            }
-        }else if(gameMode.equals("Zen")){
-            if(difficulty.equals("Easy")){
-                turns = 25;
-            }else if(difficulty.equals("Medium")){
-                turns = 20;
-            }else if(difficulty.equals("Hard")){
-                turns = 15;
-            }else{
-                turns = 10;
-            }
+        switch (gameMode) {
+            case "Classic":
+                switch (difficulty) {
+                    case "Easy":
+                        startTime = 60000;
+                        break;
+                    case "Medium":
+                        startTime = 50000;
+                        break;
+                    case "Hard":
+                        startTime = 40000;
+                        break;
+                    default:
+                        startTime = 30000;
+                        break;
+                }
+                break;
+            case "Mastery":
+                switch (difficulty) {
+                    case "Easy":
+                        startTime = 60000;
+                        break;
+                    case "Medium":
+                        startTime = 50000;
+                        break;
+                    case "Hard":
+                        startTime = 40000;
+                        break;
+                    default:
+                        startTime = 30000;
+                        break;
+                }
+                switch (difficulty) {
+                    case "Easy":
+                        lives = 20;
+                        break;
+                    case "Medium":
+                        lives = 15;
+                        break;
+                    case "Hard":
+                        lives = 10;
+                        break;
+                    default:
+                        lives = 5;
+                        break;
+                }
+                break;
+            case "Blitz":
+                switch (difficulty) {
+                    case "Easy":
+                        startTime = 30000;
+                        break;
+                    case "Medium":
+                        startTime = 25000;
+                        break;
+                    case "Hard":
+                        startTime = 20000;
+                        break;
+                    default:
+                        startTime = 15000;
+                        break;
+                }
+                break;
+            case "Zen":
+                switch (difficulty) {
+                    case "Easy":
+                        turns = 25;
+                        break;
+                    case "Medium":
+                        turns = 20;
+                        break;
+                    case "Hard":
+                        turns = 15;
+                        break;
+                    default:
+                        turns = 10;
+                        break;
+                }
+                break;
         }
 
-        if(difficulty.equals("Easy")){
-            flipAll(10000);
-        }else if(difficulty.equals("Medium")){
-            flipAll(5000);
-        }else if(difficulty.equals("Hard")){
-            flipAll(3000);
-        }else{
-            flipAll(2000);
+        switch (difficulty) {
+            case "Easy":
+                flipAll(10000);
+                break;
+            case "Medium":
+                flipAll(5000);
+                break;
+            case "Hard":
+                flipAll(3000);
+                break;
+            default:
+                flipAll(2000);
+                break;
         }
     }
 
@@ -177,7 +210,7 @@ public class GameActivity extends AppCompatActivity {
         }.start();
     }
 
-    public Card makeCard(int index){
+    public Card makeCard(){
         /*
          check for gamemode, randomize card type
 
@@ -187,36 +220,41 @@ public class GameActivity extends AppCompatActivity {
          mastery - 80% points 15% time 5% lives (this is hard mode, time and lives should be lower odds)
         */
         String type = "";
-        int value = 0;
+        int value;
 
         //randomizes card type based on game mode
         int rand = (int)(Math.random()*100)+1;
-        if(gameMode.equals("Classic")){
-            if(rand<76){
-                type = "points";
-            }else{
-                type = "time";
-            }
-        }else if(gameMode.equals("Zen")){
-            if(rand<81){
-                type = "points";
-            }else{
-                type = "turns";
-            }
-        }else if(gameMode.equals("Mastery")){
-            if(rand<81){
-                type = "points";
-            }else if(rand<96){
-                type = "time";
-            }else{
-                type = "lives";
-            }
-        }else if(gameMode.equals("Blitz")){
-            if(rand<61){
-                type = "points";
-            }else{
-                type = "time";
-            }
+        switch (gameMode) {
+            case "Classic":
+                if (rand < 76) {
+                    type = "points";
+                } else {
+                    type = "time";
+                }
+                break;
+            case "Zen":
+                if (rand < 81) {
+                    type = "points";
+                } else {
+                    type = "turns";
+                }
+                break;
+            case "Mastery":
+                if (rand < 81) {
+                    type = "points";
+                } else if (rand < 96) {
+                    type = "time";
+                } else {
+                    type = "lives";
+                }
+                break;
+            case "Blitz":
+                if (rand < 61) {
+                    type = "points";
+                } else {
+                    type = "time";
+                }
+                break;
         }
 
         /*
@@ -236,10 +274,6 @@ public class GameActivity extends AppCompatActivity {
             value = 1000 * ((int)(Math.random()*8)+3);
         }else{
             value = 50 * ((int)(Math.random()*5)+2);
-        }
-        Context cardImage;
-        if(index == 0){
-
         }
         
         return new Card(value, type);
@@ -269,7 +303,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     //checks what card was clicked, if they match, and changes variables, positions, animations, etc. accordingly
-    public void cardClicked(View v) throws InterruptedException {
+    public void cardClicked(View v) {
         for(int i=0; i<deckSize; i++){
             Point cardLocation = getLocationOnScreen(i);
             ogCoordinates[i][0] = cardLocation.x;
@@ -381,7 +415,7 @@ public class GameActivity extends AppCompatActivity {
     //redeals 18 new cards
     public void shuffle(){
         for(int i=0; i<deckSize; i+=2){
-            Card add = makeCard(i);
+            Card add = makeCard();
             temp[i] = add;
             int tempImage = add.getImage();
             if(add.getPoints()>0){
