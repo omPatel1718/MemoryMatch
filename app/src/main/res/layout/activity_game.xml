@@ -275,8 +275,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.943"
-        app:srcCompat="@drawable/pixel_card_back" />
+        app:layout_constraintVertical_bias="0.943" />
 
     <TextView
         android:id="@+id/display"

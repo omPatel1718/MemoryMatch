@@ -314,7 +314,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
-        
+
         if (index == 0 || index == 1) {
             return R.drawable.card_the_chariot_small;
         } else if (index == 2 || index == 3) {
