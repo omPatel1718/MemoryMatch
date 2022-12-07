@@ -466,10 +466,18 @@ public class GameActivity extends AppCompatActivity {
                 temp[i+1] = new Card(add.getTime(),"time", tempImage);
             }
             temp[i].setImage(whichImage(i));
-            temp[i+1].setImage(whichImage(i));
-            paused = false;
+            temp[i+1].setImage(temp[i].getImage());
         }
-        
+
+        //randomizes deck order
+        for(int i=0; i<deckSize; i++){
+            int rand = (int)(Math.random()*deckSize);
+            while (deck[rand] != null){
+                rand = (int)(Math.random()*deckSize);
+            }
+            deck[rand] = temp[i];
+        }
+
         dealCards();
 
         switch (difficulty) {
