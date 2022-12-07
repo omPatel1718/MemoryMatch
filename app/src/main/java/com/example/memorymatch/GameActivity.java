@@ -281,7 +281,7 @@ public class GameActivity extends AppCompatActivity {
 
     //helper method that assigns images to card pairs
     public int whichImage(int index){
-        while (deck[index].getImage()==0){
+        while (temp[index].getImage()==0){
             int rand = (int)(Math.random()*9);
             int imageInt;
             if(rand == 0){
