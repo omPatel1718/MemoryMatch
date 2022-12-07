@@ -308,7 +308,7 @@ public class GameActivity extends AppCompatActivity {
             }
             //iterates
             for(int i=0; i<=index; i+=2){
-                if(imageInt == temp[index].getImage() || imageInt == -1){
+                if(imageInt == temp[i].getImage() || imageInt == -1){
                     break;
                 }else if(i==index){
                     return imageInt;
