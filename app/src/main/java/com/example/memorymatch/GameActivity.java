@@ -280,22 +280,56 @@ public class GameActivity extends AppCompatActivity {
     }
 
     //helper method that assigns images to card pairs
-    public int whichImage(int i){
-        if (i == 0 || i == 1) {
+    public int whichImage(int index){
+        while (deck[index].getImage()==0){
+            int rand = (int)(Math.random()*9);
+            int imageInt;
+            if(rand == 0){
+                imageInt = R.drawable.card_the_chariot_small;
+            }else if(rand == 1){
+                imageInt = R.drawable.card_the_big_x_small;
+            }else if(rand == 2){
+                imageInt = R.drawable.card_the_fool_small;
+            }else if(rand == 3){
+                imageInt = R.drawable.card_the_hermit_small;
+            }else if(rand == 4){
+                imageInt = R.drawable.card_the_magician_small;
+            }else if(rand == 5){
+                imageInt = R.drawable.card_the_moon_small;
+            }else if(rand == 6){
+                imageInt = R.drawable.card_the_tower_small;
+            }else if(rand == 7){
+                imageInt = R.drawable.card_the_world_small;
+            }else if(rand ==8){
+                imageInt = R.drawable.card_the_wheel_of_fortune_small;
+            }else{
+                imageInt = -1;
+            }
+            for(int i=0; i<index; i++){
+                if(imageInt == temp[index].getImage() || imageInt == -1){
+                    break;
+                }else if(i==index-1){
+                    return imageInt;
+                }
+            }
+        }
+
+        
+        if (index == 0 || index == 1) {
             return R.drawable.card_the_chariot_small;
-        } else if (i == 2 || i == 3) {
+        } else if (index == 2 || index == 3) {
             return R.drawable.card_the_big_x_small;
-        } else if (i == 4 || i == 5) {
+        } else if (index == 4 || index == 5) {
             return R.drawable.card_the_fool_small;
-        } else if (i == 6 || i == 7) {
+        } else if (index == 6 || index == 7) {
             return R.drawable.card_the_hermit_small;
-        } else if (i == 8 || i == 9) {
+        } else if (index == 8 || index == 9) {
             return R.drawable.card_the_magician_small;
-        } else if (i == 10 || i == 11) {
+        } else if (index == 10 || index == 11) {
             return R.drawable.card_the_moon_small;
-        } else if (i == 12 || i == 13) {
+        } else if (index == 12 || index == 13) {
             return R.drawable.card_the_tower_small;
-        } else if (i == 14 || i == 15) {
+        } else if (index == 14 || index == 15) {
             return R.drawable.card_the_world_small;
         } else {
             return R.drawable.card_the_wheel_of_fortune_small;
