@@ -281,9 +281,10 @@ public class GameActivity extends AppCompatActivity {
 
     //helper method that assigns images to card pairs
     public int whichImage(int index){
-        while (temp[index].getImage()==0){
-            int rand = (int)(Math.random()*9);
-            int imageInt;
+        while (temp[index].getImage()==0){      //Card objects default to image == 0
+            int rand = (int)(Math.random()*9);  //randomly generate a number 0 to 8
+            int imageInt;                       //temp variable to hold image
+            //sets imageInt based on rand's value
             if(rand == 0){
                 imageInt = R.drawable.card_the_chariot_small;
             }else if(rand == 1){
@@ -303,12 +304,13 @@ public class GameActivity extends AppCompatActivity {
             }else if(rand ==8){
                 imageInt = R.drawable.card_the_wheel_of_fortune_small;
             }else{
-                imageInt = -1;
+                imageInt = -1;                  //if something goes wrong, set imageInt to -1
             }
-            for(int i=0; i<index; i++){
+            //iterates
+            for(int i=0; i<=index; i++){
                 if(imageInt == temp[index].getImage() || imageInt == -1){
                     break;
-                }else if(i==index-1){
+                }else if(i==index){
                     return imageInt;
                 }
             }
