@@ -14,6 +14,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.concurrent.TimeUnit;
+
 public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
@@ -465,8 +467,9 @@ public class GameActivity extends AppCompatActivity {
             }
             temp[i].setImage(whichImage(i));
             temp[i+1].setImage(whichImage(i));
+            paused = false;
         }
-
+        
         dealCards();
 
         switch (difficulty) {
