@@ -51,7 +51,7 @@ public class GameActivity extends AppCompatActivity {
                 temp[i+1] = new Card(add.getTime(),"time", tempImage);
             }
             temp[i].setImage(whichImage(i));
-            temp[i+1].setImage(whichImage(i));
+            temp[i+1].setImage(temp[i].getImage());
         }
 
         //randomizes deck order
@@ -307,7 +307,7 @@ public class GameActivity extends AppCompatActivity {
                 imageInt = -1;                  //if something goes wrong, set imageInt to -1
             }
             //iterates
-            for(int i=0; i<=index; i++){
+            for(int i=0; i<=index; i+=2){
                 if(imageInt == temp[index].getImage() || imageInt == -1){
                     break;
                 }else if(i==index){
