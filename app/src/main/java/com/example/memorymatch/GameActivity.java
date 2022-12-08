@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class GameActivity extends AppCompatActivity {
 
     int deckSize = 18;
-    int startTime, lives, turns, score, time = 0;
+    int startTime, lives, turns, score, time, countUnmatched = 0;
     boolean paused;
     String gameMode, difficulty;
     TextView scoreText;
@@ -283,9 +283,9 @@ public class GameActivity extends AppCompatActivity {
 
     //helper method that assigns images to card pairs
     public int whichImage(int index){
-        while (temp[index].getImage()==0){      //Card objects default to image == 0
+        int imageInt = -1;                           //temp variable to hold image
+        while(imageInt == -1){      //Card objects default to image == 0
             int rand = (int)(Math.random()*9);  //randomly generate a number 0 to 8
-            int imageInt;                       //temp variable to hold image
             //sets imageInt based on rand's value
             if(rand == 0){
                 imageInt = R.drawable.card_the_chariot_small;
@@ -305,39 +305,16 @@ public class GameActivity extends AppCompatActivity {
                 imageInt = R.drawable.card_the_world_small;
             }else if(rand ==8){
                 imageInt = R.drawable.card_the_wheel_of_fortune_small;
-            }else{
-                imageInt = -1;                  //if something goes wrong, set imageInt to -1
             }
+
             //iterates
             for(int i=0; i<=index; i+=2){
-                if(imageInt == temp[i].getImage() || imageInt == -1){
-                    break;
-                }else if(i==index){
-                    return imageInt;
+                if(imageInt == temp[i].getImage() || imageInt == -1) {
+                    imageInt = -1;
                 }
             }
         }
-
-
-        if (index == 0 || index == 1) {
-            return R.drawable.card_the_chariot_small;
-        } else if (index == 2 || index == 3) {
-            return R.drawable.card_the_big_x_small;
-        } else if (index == 4 || index == 5) {
-            return R.drawable.card_the_fool_small;
-        } else if (index == 6 || index == 7) {
-            return R.drawable.card_the_hermit_small;
-        } else if (index == 8 || index == 9) {
-            return R.drawable.card_the_magician_small;
-        } else if (index == 10 || index == 11) {
-            return R.drawable.card_the_moon_small;
-        } else if (index == 12 || index == 13) {
-            return R.drawable.card_the_tower_small;
-        } else if (index == 14 || index == 15) {
-            return R.drawable.card_the_world_small;
-        } else {
-            return R.drawable.card_the_wheel_of_fortune_small;
-        }
+        return imageInt;
     }
 
     //checks what card was clicked, if they match, and changes variables, positions, animations, etc. accordingly
@@ -346,7 +323,7 @@ public class GameActivity extends AppCompatActivity {
             Point cardLocation = getLocationOnScreen(i);
             ogCoordinates[i][0] = cardLocation.x;
             ogCoordinates[i][1] = cardLocation.y;
-            Log.e("AAAA", "" + ogCoordinates[i][0]);
+            Log.e("AAAA", "index: " + i + " X: " + ogCoordinates[i][0] + " Y: " + ogCoordinates[i][1]);
         }
 
         int cardNum=0;
@@ -405,6 +382,16 @@ public class GameActivity extends AppCompatActivity {
                         updateMatched(deck[i],select);
                         disCard(v);
                         disCard(i);
+
+
+                        Log.e("hello", "before if " + countUnmatched);
+                        if(countUnmatched==9){
+                            Log.e("hello", "before shuffle");
+                            countUnmatched=0;
+                            shuffle();
+                            Log.e("hello", "after shuffle");
+                        }
+
                     //if they don't match, unflip them and decrease lives if needed
                     }else{
                         deck[i].setFlipped(false);
@@ -452,8 +439,10 @@ public class GameActivity extends AppCompatActivity {
 
     //redeals 18 new cards
     public void shuffle(){
+        Log.e("bye", "hello");
         paused = true;
         for(int i=0; i<deckSize; i+=2){
+            Log.e("bye", "card make:" + i);
             Card add = makeCard();
             temp[i] = add;
             int tempImage = add.getImage();
@@ -468,10 +457,14 @@ public class GameActivity extends AppCompatActivity {
             }
             temp[i].setImage(whichImage(i));
             temp[i+1].setImage(temp[i].getImage());
+
+            deck[i] = null;
+            deck[i+1] = null;
         }
 
         //randomizes deck order
         for(int i=0; i<deckSize; i++){
+            Log.e("bye", "card shuffle:" + i);
             int rand = (int)(Math.random()*deckSize);
             while (deck[rand] != null){
                 rand = (int)(Math.random()*deckSize);
@@ -481,8 +474,10 @@ public class GameActivity extends AppCompatActivity {
             deck[rand].setMatched(false);
         }
 
+        Log.e("bye", "before delay");
         setDelay2();
 
+        Log.e("bye", "switch case");
         switch (difficulty) {
             case "Easy":
                 flipAll(10000);
@@ -497,11 +492,11 @@ public class GameActivity extends AppCompatActivity {
                 flipAll(2000);
                 break;
         }
-        paused = true;
+        paused = false;
     }
 
     public void setDelay2(){
-        new CountDownTimer((long) 501, 1000) {
+        new CountDownTimer((long) 1000, 1000) {
             public void onTick(long millisUntilFinished) {
 
             }
@@ -514,6 +509,7 @@ public class GameActivity extends AppCompatActivity {
 
     //helper method that updates variables if cards match
     public void updateMatched(Card one, Card two){
+        countUnmatched++;
         score += one.getPoints();
         turns += one.getTurns();
         lives += one.getLives();
@@ -643,16 +639,6 @@ public class GameActivity extends AppCompatActivity {
         ObjectAnimator moveY = ObjectAnimator.ofFloat(view, "translationY", 0f, floatY);
         moveY.setDuration(500);
         moveY.start();
-        boolean temp = false;
-        for (Card c: deck) {
-            if (!c.isMatched()) {
-                temp = true;
-                break;
-            }
-        }
-        if(!temp){
-            shuffle();
-        }
     }
 
     //turns an int into a card id and then calls disCard
@@ -671,12 +657,17 @@ public class GameActivity extends AppCompatActivity {
             ObjectAnimator y = ObjectAnimator.ofFloat(findViewById(getButtonFromCard(i)), "translationY", floatY);
             y.setDuration(5);
             y.start();
+            Log.e("deal", "deck " + i);
         }
         for (int i = 0; i < ogCoordinates.length; i++){
-            int setCoordinateX = ogCoordinates[i][0];
-            int setCoordinateY = ogCoordinates[i][1];
+            //int setCoordinateX = ogCoordinates[i][0];
+            //int setCoordinateY = ogCoordinates[i][1];
+            int setCoordinateX = 1867;
+            int setCoordinateY = 732;
+            Log.e("deal", "X: " + setCoordinateX + " Y: " + setCoordinateY);
             int deckX = deckPile.x;
             int deckY = deckPile.y;
+
             float floatX = deckX - setCoordinateX;
             float floatY = 320 + deckY - setCoordinateY;
             ObjectAnimator x = ObjectAnimator.ofFloat(findViewById(getButtonFromCard(i)), "translationX", floatX);
@@ -685,6 +676,8 @@ public class GameActivity extends AppCompatActivity {
             ObjectAnimator y = ObjectAnimator.ofFloat(findViewById(getButtonFromCard(i)), "translationY", 0f, floatY);
             y.setDuration(500);
             y.start();
+            Log.e("deal", "reshuffle " + i + " deckX " + deckX + " deckY " + deckY + " floatX: "
+                    + floatX + " floatY: " + floatY + " coorX " + setCoordinateX + " coorY " + setCoordinateY);
         }
     }
 }
