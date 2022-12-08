@@ -411,7 +411,7 @@ public class GameActivity extends AppCompatActivity {
                         select.setFlipped(false);
 
                         ImageButton btn2 = (ImageButton)findViewById(getButtonFromCard(i));
-                        setDelay(btn1, btn2);
+                        setDelay1(btn1, btn2);
 
                         if(gameMode.equals("Mastery")){
                             lives--;
@@ -437,7 +437,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void setDelay(ImageButton a, ImageButton b){
+    public void setDelay1(ImageButton a, ImageButton b){
         new CountDownTimer((long) 500, 1000) {
             public void onTick(long millisUntilFinished) {
 
@@ -452,6 +452,7 @@ public class GameActivity extends AppCompatActivity {
 
     //redeals 18 new cards
     public void shuffle(){
+        paused = true;
         for(int i=0; i<deckSize; i+=2){
             Card add = makeCard();
             temp[i] = add;
@@ -476,9 +477,11 @@ public class GameActivity extends AppCompatActivity {
                 rand = (int)(Math.random()*deckSize);
             }
             deck[rand] = temp[i];
+            deck[rand].setFlipped(false);
+            deck[rand].setMatched(false);
         }
 
-        dealCards();
+        setDelay2();
 
         switch (difficulty) {
             case "Easy":
@@ -494,6 +497,19 @@ public class GameActivity extends AppCompatActivity {
                 flipAll(2000);
                 break;
         }
+        paused = true;
+    }
+
+    public void setDelay2(){
+        new CountDownTimer((long) 501, 1000) {
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                dealCards();
+            }
+        }.start();
     }
 
     //helper method that updates variables if cards match
