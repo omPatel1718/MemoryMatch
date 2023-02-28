@@ -20,19 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/instructions2"
-        android:layout_width="282dp"
-        android:layout_height="316dp"
-
-        android:layout_marginTop="20dp"
-        android:text="Classic: A Good Beginning\nCards get you points or more time.\nTry to make as many matches as you can with the time you've got!"
-        android:textSize="23dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.826"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
